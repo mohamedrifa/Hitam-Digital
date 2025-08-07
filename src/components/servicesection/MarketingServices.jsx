@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from './ServiceCard';
 import services from '../../utils/Service.json';
-import CTAButton from './CTAButton';
 
 const MarketingServices = () => {
   const [serviceData, setServiceData] = useState([]);
@@ -11,7 +10,7 @@ const MarketingServices = () => {
   }, []);
 
   return (
-    <div className="relative bg-white py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto text-center mt-[60px] sm:mt-[80px] md:mt-[90px]">
+    <div className="relative bg-white pb-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto text-center mt-[60px] sm:mt-[80px] md:mt-[90px]">
       <h2 className="text-[#0B1508] font-[Outfit] text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[36px]">
         Hitam Digital Marketing Services
       </h2>
@@ -26,9 +25,14 @@ const MarketingServices = () => {
         ))}
       </div>
 
-      <div className="flex justify-center">
-        <CTAButton onClick={() => alert('Let’s go!')}>Get Started Now</CTAButton>
-      </div>
+       <div className="mt-8">
+          <button
+            onClick={() => console.log('get start')}
+            className="inline-flex items-center bg-[#018002] hover:bg-green-600 text-white text-md font-semibold px-10 py-3 rounded-full transition duration-300"
+          >
+            Get Start Now
+          </button>
+        </div>
     </div>
   );
 };

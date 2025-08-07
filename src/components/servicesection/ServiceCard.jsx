@@ -19,11 +19,7 @@ const ServiceCard = ({ highlight, description, index }) => {
       role="button"
       className="flex flex-col md:flex-col items-center md:items-start w-full md:w-[376.67px] h-[327px] md:h-[432px] 
                  px-5 md:px-[18px] pt-5 md:pt-5 pb-5 md:pb-[69.166px] rounded-[16px] backdrop-blur-[8.9px]
-                 transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] hover:border-green-600"
-      style={{
-        background:
-          'linear-gradient(129deg, rgba(247, 197, 0, 0.04) 1.9%, rgba(247, 197, 0, 0.10) 98.62%)',
-      }}
+                 transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] hover:border-green-600 bg-gradient-to-tl from-[#F7C700]/20 to-[#F7C500]/10"
     >
       {/* Icon + Highlight Row */}
       <div className="flex items-center space-x-3 mb-3 w-full">
@@ -32,14 +28,14 @@ const ServiceCard = ({ highlight, description, index }) => {
           alt="icon"
           className="w-[32px] h-[32px] md:w-[54.83px] md:h-[54.83px] object-contain"
         />
-        <h3 className="text-left text-[#018002] font-outfit font-bold leading-[26.4px] underline underline-offset-[2px]
-                       text-[16px] md:text-[21.313px]">
+        <h3 className="text-left text-[#018002] font-bold leading-[26.4px] underline underline-offset-[2px]
+                       text-md md:text-xl">
           {highlight}
         </h3>
       </div>
 
       {/* Description */}
-      <p className="text-[#404040] text-[14px] md:text-[16px] leading-[26px] text-justify font-outfit font-normal">
+      <p className="text-[#404040] text-sm md:text-[15px] leading-[26px] text-justify font-normal">
         {description}
       </p>
     </div>
