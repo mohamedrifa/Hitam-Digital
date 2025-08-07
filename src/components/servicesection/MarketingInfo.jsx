@@ -135,7 +135,7 @@ const MarketingInfo = () => {
     >
       <div
         ref={scrollRef}
-        className="w-full overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scroll-smooth flex md:justify-around items-center gap-8 md:gap-0 px-4 md:px-0 scrollbar-hide"
+        className="w-full overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scroll-smooth flex md:justify-around items-center gap-8 md:gap-0 px-4 md:px-0 scrollbar-hide "
       >
         {reviews.map((item, index) => (
           <div

@@ -37,7 +37,7 @@ const HeroSectionOne = () => {
       <img
         src={vector1}
         alt="decorative vector"
-        className="absolute -bottom-32 -left-28 w-72 md:w-[400px] opacity-80 pointer-events-none select-none"
+        className="absolute -bottom-40 -left-28 w-72 md:w-[400px] opacity-80 pointer-events-none select-none"
       />
 
       {/* Main Hero Content */}
@@ -59,7 +59,7 @@ const HeroSectionOne = () => {
       </div>
 
       {/* Breadcrumb Section */}
-      <div className="w-full h-12 bg-gradient-to-br from-[#F7c500]/20 to-[#F7C500] flex items-center justify-center space-x-1 text-gray-700">
+      <div className="w-full h-12 bg-gradient-to-br from-[#F7c500]/20 to-[#F7C500] flex items-center justify-center space-x-1 text-gray-700 ">
         <Link to="/" className="flex items-center space-x-1 text-gray-700 hover:underline">
           <HomeIcon className="w-5 h-5 text-gray-600" />
           <span className="font-medium">Home /</span>
