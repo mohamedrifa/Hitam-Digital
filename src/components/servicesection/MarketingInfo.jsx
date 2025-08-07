@@ -1,6 +1,6 @@
 import React from 'react';
-import TwoPersonImg from '../../assets/images/servicesection/twoperson.png';
-import DigitalImg from '../../assets/images/servicesection/digital1.png';
+import TwoPersonImg from '../../assets/servicesection/twoperson.png';
+import DigitalImg from '../../assets/servicesection/digital1.png';
 
 const MarketingInfo = () => {
   return (

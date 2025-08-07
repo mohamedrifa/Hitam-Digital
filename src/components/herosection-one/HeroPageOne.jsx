@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { HomeIcon } from '@heroicons/react/24/outline';
 import { useLocation, Link } from 'react-router-dom';
 import ServiceData from '../../utils/serviceData.json';
-import vector1 from '../../assets/images/servicesection/vector_1.png';
-import vector2 from '../../assets/images/servicesection/vector_2.png';
+import vector1 from '../../assets/servicesection/vector_1.png';
+import vector2 from '../../assets/servicesection/vector_2.png';
 
 const HeroSectionOne = () => {
   const location = useLocation();
