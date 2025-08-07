@@ -1,9 +1,9 @@
 import React from 'react'
-import MarketingBanner from './components/service/MarketingInfo'
+import ServicePage from './pages/servicepage/ServicePage'
 
 const App = () => {
   return (
-      <MarketingBanner/>
+      <ServicePage/>
   )
 }
 
