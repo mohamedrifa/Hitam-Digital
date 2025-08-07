@@ -1,8 +1,11 @@
 import React from 'react'
+import MarketingBanner from './components/service/MarketingInfo'
 
 const App = () => {
   return (
-    <div className=''>App  hello</div>
+    <div className=''>
+      <MarketingBanner/>
+    </div>
   )
 }
 
