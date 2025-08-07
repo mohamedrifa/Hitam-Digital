@@ -27,7 +27,7 @@ const HeroSectionOne = () => {
   const { title, subtitle,page } = heroContent;
 
   return (
-    <section className="relative bg-white overflow-hidden space-y-44 py-24">
+    <section className="relative bg-white overflow-hidden space-y-44 pt-24 pb-16">
       {/* Decorative Background Images */}
       <img
         src={vector2}
