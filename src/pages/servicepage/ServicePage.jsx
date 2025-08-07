@@ -1,8 +1,10 @@
 import React from "react";
 import HeroSectionOne from "../../components/herosection-one/HeroPageOne";
-import MarketingInfo from "../../components/service/MarketingInfo";
+import MarketingInfo from "../../components/servicesection/MarketingInfo";
+
 
 const ServicePage = () => {
+   
  return(
     <>
     <HeroSectionOne/>

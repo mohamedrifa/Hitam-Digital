@@ -1,10 +1,10 @@
 import React from 'react';
-import TwoPersonImg from '../../assets/images/service/twoperson.png';
-import DigitalImg from '../../assets/images/service/digital1.png';
+import TwoPersonImg from '../../assets/images/servicesection/twoperson.png';
+import DigitalImg from '../../assets/images/servicesection/digital1.png';
 
 const MarketingInfo = () => {
   return (
-    <div className="relative bg-white py-16 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start font-[Outfit]">
+    <div className="relative bg-white pb-16 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start font-[Outfit]">
       {/* Left Content */}
       <div className="space-y-4 text-gray-700">
         <p>
