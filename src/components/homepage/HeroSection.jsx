@@ -3,108 +3,107 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full bg-white py-16 px-6 md:px-16 overflow-hidden">
+    <section className="relative w-full bg-white py-10 sm:py-14 md:py-16 px-4 sm:px-6 md:px-12 xl:px-16 overflow-hidden">
       {/* Left Floral Background */}
       <img
         src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/HeroBg-1.png?updatedAt=1754558014536"
         alt="Floral"
-        className="absolute -left-44 top-[100px] w-[650px] lg:w-[700px] object-contain z-0 pointer-events-none"
+        className="absolute -left-40 top-[150px] w-[400px] sm:w-[560px] lg:w-[620px] object-contain z-0 pointer-events-none"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
+      {/* Wrapper */}
+      <div className="relative z-10 max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-6 lg:gap-3 xl:gap-2">
+        
         {/* LEFT COLUMN */}
-        <div className="w-full lg:w-1/2 space-y-6">
+        <div className="w-full lg:w-[54%] space-y-4 lg:space-y-4 lg:pr-2 lg:ml-16 text-center lg:text-left">
           <div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
               <span className="block">Design</span>
               <span className="block">Develop</span>
               <span className="block">Dominate</span>
             </h1>
-            <p className="text-lg text-gray-700 mt-2 font-semibold">
+            <p className="text-base sm:text-lg text-gray-800 mt-2 font-semibold">
               Your Business, Powered by Smart Creativity.
             </p>
           </div>
 
-          <p className="text-gray-600 max-w-md">
+          <p className="text-gray-600 max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
             We design, develop, and market digital experiences that deliver measurable
             business outcomes — across industries, platforms, and formats.
           </p>
 
-          <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full flex items-center gap-2 w-fit shadow">
-            Schedule Call <ArrowRight size={18} />
-          </button>
+          <div className="flex justify-center lg:justify-start">
+            <button className="bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-full flex items-center gap-2 w-fit shadow text-sm sm:text-base">
+              Schedule Call <ArrowRight size={18} />
+            </button>
+          </div>
 
-          <div className="pt-6">
-            <p className="text-sm text-gray-500 mb-2 font-medium">
+          {/* Logos row */}
+          <div className="pt-6 sm:pt-8 lg:pt-24">
+            <p className="text-xs sm:text-sm text-gray-800 mb-4 font-medium">
               Trusted by the world’s biggest brands
             </p>
-            <div className="flex items-center gap-6 flex-wrap">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" className="h-6" alt="Google" />
-              <img src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Company%20logo.png?updatedAt=1754566332375" className="h-6" alt="Afterpay" />
-              <img src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/simple-icons_wipro.png?updatedAt=1754566332432" className="h-6" alt="wipro" />
-              <img src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/simple-icons_accenture.png?updatedAt=1754566332523" className="h-6" alt="accenture" />
-              <img src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Company%20logo%20(1).png?updatedAt=1754566332518" />
-              <img src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Company%20logo%20(2).png?updatedAt=1754566332434" className="h-5" alt="Maze" />
+            <div className="flex items-center justify-center lg:justify-start gap-4 sm:gap-8 flex-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" className="h-6 sm:h-8" alt="Google" />
+              <img src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Company%20logo.png?updatedAt=1754566332375" className="h-6 sm:h-8" alt="Afterpay" />
+              <img src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/simple-icons_accenture.png?updatedAt=1754566332523" className="h-6 sm:h-8" alt="Accenture" />
+              <img src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Company%20logo%20(1).png?updatedAt=1754566332518" className="h-6 sm:h-8" alt="Basecamp" />
+              <img src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Company%20logo%20(2).png?updatedAt=1754566332434" className="h-6 sm:h-8" alt="Maze" />
             </div>
           </div>
         </div>
 
         {/* RIGHT COLUMN */}
-        <div className="w-full lg:w-1/2 relative flex flex-col items-center lg:items-end gap-6">
-          {/* Up Arrow Icon Circle */}
-          {/* <div className="absolute top-0 right-[140px] z-30 bg-yellow-200 p-3 rounded-full shadow-md">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-green-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
-          </div> */}
+        <div className="w-full lg:w-[46%] relative flex flex-col items-center lg:items-end gap-4 lg:-ml-4 mt-6 lg:mt-0">
+          {/* Main Row */}
+          <div className="flex gap-2 relative items-end scale-90 sm:scale-100">
+            <div className="w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] bg-yellow-100 rounded-tl-full shadow-inner z-0" />
 
-          {/* Main Row: Half Circle + Person + Stat Box */}
-          <div className="flex gap-4 relative items-end">
-            {/* Half Circle */}
-            <div className="w-[220px] h-[220px] bg-yellow-100 rounded-tl-full shadow-inner z-0" />
-
-            {/* Person Image */}
-            <div className="relative z-10 -ml-[260px] -mt-10">
+            <div className="relative z-10 -ml-[160px] sm:-ml-[220px] -mt-6 sm:-mt-8">
               <img
                 src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/HeroBg-2.png?updatedAt=1754558055909"
                 alt="Person"
-                className="w-[240px] h-auto object-contain"
+                className="w-[170px] sm:w-[230px] h-auto object-contain"
               />
             </div>
 
-            {/* Stats Box */}
-            <div className="w-[220px] h-[220px] bg-yellow-100 rounded-xl shadow flex flex-col items-center justify-center text-center px-5 py-4 z-10">
-              <h2 className="text-5xl font-bold text-gray-900">230+</h2>
-              <p className="text-sm text-gray-600 mt-2">
+            <div className="w-[200px] sm:w-[260px] h-[200px] sm:h-[240px] bg-yellow-100 rounded-2xl shadow ring-1 ring-black/5 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-4 sm:py-5 z-10">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-none">230+</h2>
+              <p className="text-[12px] sm:text-[13px] text-gray-600 mt-2 leading-snug">
                 some big companies that we work with, and trust us very much
               </p>
-              <div className="w-full h-2 bg-green-700 rounded-full mt-3 relative">
-                <div className="absolute left-2 top-1/2 transform -translate-y-1/2 w-[55%] h-1 bg-green-200 rounded-full" />
+              <div className="w-full h-2 bg-green-700/90 rounded-full mt-3 relative overflow-hidden">
+                <div className="absolute left-2 top-1/2 -translate-y-1/2 w-[58%] h-1 bg-green-200 rounded-full" />
               </div>
             </div>
           </div>
 
           {/* Chart Box */}
-          <div className="w-[460px] bg-yellow-100 rounded-xl px-6 py-6 shadow mt-2 z-10">
-            <p className="text-sm font-semibold text-gray-600 mb-1">
-              Drive More Traffic and Sales
-            </p>
-            <p className="text-2xl font-bold text-gray-900">
-              Drive more traffic and product sales
-            </p>
-            <div className="flex items-end gap-2 mt-4 h-24">
-              <div className="w-5 bg-green-300 h-10 rounded" />
-              <div className="w-5 bg-green-400 h-16 rounded" />
-              <div className="w-5 bg-green-500 h-20 rounded" />
-              <div className="w-5 bg-green-600 h-24 rounded" />
+          <div
+            className="w-full max-w-[500px] sm:max-w-[560px] rounded-2xl px-6 sm:px-8 py-5 sm:py-7 shadow ring-1 ring-black/5 z-10"
+            style={{ background: "linear-gradient(90deg, #FAF3D1 0%, #EAE0A1 100%)" }}
+          >
+            <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <span className="block h-[1px] w-6 bg-gray-500" />
+              <p className="text-xs font-medium text-gray-600 tracking-wide">
+                Drive More Traffic and Sales
+              </p>
+            </div>
+
+            <div className="flex justify-between items-end">
+              <p className="text-lg sm:text-[22px] md:text-2xl font-bold text-gray-900 leading-snug max-w-[65%]">
+                Drive more traffic and product sales
+              </p>
+
+              <div className="flex items-end gap-1 sm:gap-2 h-16 sm:h-20">
+                <div className="w-[14px] sm:w-[18px] bg-green-300 h-6 sm:h-8 rounded-sm" />
+                <div className="w-[14px] sm:w-[18px] bg-green-400 h-9 sm:h-12 rounded-sm" />
+                <div className="w-[14px] sm:w-[18px] bg-green-500 h-12 sm:h-16 rounded-sm" />
+                <div className="w-[14px] sm:w-[18px] bg-green-600 h-14 sm:h-20 rounded-sm" />
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

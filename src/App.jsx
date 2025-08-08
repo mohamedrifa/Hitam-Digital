@@ -9,6 +9,7 @@ const App = () => {
   return (
     <>
     <Navbar />
+    
     <HeroSection />
     <HowWeWork />
     <PortfolioSection />
