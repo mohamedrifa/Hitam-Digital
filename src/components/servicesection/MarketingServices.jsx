@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from './ServiceCard';
-import services from '../../utils/Service.json';
+import services from '../../utils/ServiceCard.json';
 
 const MarketingServices = () => {
   const [serviceData, setServiceData] = useState([]);
