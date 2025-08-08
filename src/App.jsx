@@ -4,11 +4,13 @@ import ServicePage from './pages/servicepage/ServicePage';
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/*" element={<ServicePage />} />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/service" element={<ServicePage />} />
+        </Routes>
+      </Router>
+    </>
   );
 };
 

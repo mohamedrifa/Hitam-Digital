@@ -11,7 +11,7 @@ const MarketingServices = () => {
 
   return (
     <div className="relative bg-white pb-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto text-center mt-[60px] sm:mt-[80px] md:mt-[90px]">
-      <h2 className="text-[#0B1508] font-[Outfit] text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[36px]">
+      <h2 className="text-[#0B1508] text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[36px]">
         Hitam Digital Marketing Services
       </h2>
 
