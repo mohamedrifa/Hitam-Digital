@@ -3,11 +3,12 @@ import Navbar from './layout/Navbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/homepage/HomePage';
 import ServicePage from './pages/servicepage/ServicePage';
-import ContactUs from './components/contactus/ContactUs';
+import ServiceDetail from './components/servicesection/ServiceDetail';
 
 const App = () => {
   return (
     <>
+      
       <Navbar />
       <Router>
         <Routes>
