@@ -118,7 +118,4 @@ const PortfolioSection = () => {
 
 export default PortfolioSection;
 
-/* Optional (global CSS):
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-*/
+

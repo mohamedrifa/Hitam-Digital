@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { FiPhoneCall, FiMail } from "react-icons/fi";
+import { Link } from "react-router-dom"; // <-- Added
 import ServicePopup from "./Servicepopup";
- // <-- import
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,7 +59,11 @@ const Navbar = () => {
               />
             </button>
 
-            <button className="hover:text-green-600">Testimonial</button>
+            {/* Updated to Link */}
+            <Link to="/testimonial" className="hover:text-green-600">
+              Testimonial
+            </Link>
+
             <button className="hover:text-green-600">About us</button>
             <a href="#blog" className="hover:text-green-600">Blog</a>
             <a href="#contact" className="hover:text-green-600">Contact</a>
@@ -132,7 +136,11 @@ const Navbar = () => {
               </div>
             )}
 
-            <button className="w-full text-left hover:text-green-600">Testimonial</button>
+            {/* Updated to Link */}
+            <Link to="/testimonial" className="block hover:text-green-600">
+              Testimonial
+            </Link>
+
             <button className="w-full text-left hover:text-green-600">About</button>
             <a href="#blog" className="block hover:text-green-600">Blog</a>
             <a href="#contact" className="block hover:text-green-600">Contact</a>
