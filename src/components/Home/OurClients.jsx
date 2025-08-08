@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import TestimonialSlider from "./TestimonialSlider";
 
 const OurClients = () => {
@@ -23,7 +24,14 @@ const OurClients = () => {
       <div className="pointer-events-none absolute -z-10 inset-0 bg-gradient-to-br from-transparent via-transparent to-green-50" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-10">
-        <div className="text-center max-w-3xl mx-auto">
+        {/* Heading */}
+        <motion.div
+          className="text-center max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
           <h1 className="text-2xl md:text-4xl font-semibold tracking-tight text-gray-900">
             What Our Clients Are Saying
           </h1>
@@ -31,14 +39,18 @@ const OurClients = () => {
             As a leading digital services provider, we share real client feedback and helpful insights
             to guide your decisions.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Content card area (optional subtle card look) */}
-        <div className="mt-10">
-          <div className="p-4 sm:p-6 md:p-10">
-            <TestimonialSlider />
-          </div>
-        </div>
+        {/* Slider */}
+        <motion.div
+          className="p-4 sm:p-4 md:pb-10"
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <TestimonialSlider />
+        </motion.div>
       </div>
     </section>
   );

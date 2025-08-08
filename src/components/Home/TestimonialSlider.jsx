@@ -27,14 +27,14 @@ export default function TestimonialSlider() {
   return (
     <section className="relative w-full max-w-6xl mx-auto py-12 md:py-20 px-4 md:px-6 ">
       {/* Quote */}
-      <blockquote className="text-lg md:text-2xl leading-8 md:leading-[2.1rem] text-black max-w-full ">
+      <p className="text-lg md:text-2xl leading-8 md:leading-[2.1rem] text-black max-w-full ">
         <span className="text-3xl md:text-4xl mr-2">“</span>
         {t.quote}
         <span className="text-3xl md:text-4xl ml-1">”</span>
-      </blockquote>
+      </p>
 
       {/* Bottom Row */}
-      <div className="mt-8 md:mt-16 flex items-end justify-between">
+      <div className="mt-8  flex items-end justify-between">
         {/* Author */}
         <div className="flex items-center gap-3">
           <img
