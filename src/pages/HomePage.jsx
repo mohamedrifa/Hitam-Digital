@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 
 // ✅ lazy() must also be a function here
-const OurClients = lazy(() => import("../components/Home/OurClients"));
+const OurClients = lazy(() => import("../components/home/OurClients"));
 
 const HomePage = () => {
   return (
