@@ -20,23 +20,33 @@ const LinkItem = ({ href, children }) => (
   </Link>
 );
 
-const SocialIcon = ({ href, label, Icon }) => (
+const SocialIcon = ({ href, label, Icon: IconCmp }) => (
   <a
-    href={href}
-    aria-label={label}
-    target="_blank"
-    rel="noreferrer"
-    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition"
-  >
-    <Icon size={16} />
-  </a>
+  href={href}
+  aria-label={label}
+  target="_blank"
+  rel="noreferrer"
+  className="group inline-flex h-9 w-9 items-center justify-center
+             rounded-full border border-gray-200
+             hover:bg-green-500 hover:border-green-500
+             transition-colors duration-300"
+>
+  <IconCmp
+    size={16}
+    className="text-amber-400 transition-colors duration-300 group-hover:text-amber-50"
+  />
+</a>
+
 );
 
 export default function Footer() {
   return (
-    <footer className="   bg-white px-6 py-8">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-        {/* 4 columns on desktop, 1 column on mobile */}
+    <footer className="bg-white px-6 py-8">
+      <div
+  className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 "
+ 
+>
+        {/* Grid layout: 1 col mobile → 4 col desktop */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           {/* Brand */}
           <div>
@@ -46,7 +56,7 @@ export default function Footer() {
               and Mobile App Development. From strategy to execution, we focus on
               measurable outcomes.
             </p>
-            <div className="mt-4 flex items-center gap-3">
+            <div className="mt-4 flex flex-wrap items-center gap-3">
               <SocialIcon href="#" label="Facebook" Icon={Facebook} />
               <SocialIcon href="#" label="Twitter" Icon={Twitter} />
               <SocialIcon href="#" label="LinkedIn" Icon={Linkedin} />
@@ -58,7 +68,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-gray-900">Navigation</h3>
             <div className="mt-3">
-            <LinkItem href="/">Home</LinkItem>
+              <LinkItem href="/">Home</LinkItem>
               <LinkItem href="/services">Services</LinkItem>
               <LinkItem href="/about">About</LinkItem>
               <LinkItem href="/case-studies">Case Studies</LinkItem>
@@ -83,18 +93,18 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-gray-900">Contact</h3>
             <ul className="mt-3 space-y-3 text-sm text-gray-600">
               <li className="flex items-start gap-2">
-                <Phone size={18} className="mt-0.5" />
+                <Phone size={18} className="mt-0.5 text-green-500" />
                 <span>+91 89255-39937</span>
               </li>
               <li className="flex items-start gap-2">
-                <Mail size={18} className="mt-0.5" />
+                <Mail size={18} className="mt-0.5 text-green-500" />
                 <span>info@hitamdigital.com</span>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin size={18} className="mt-0.5" />
+                <MapPin size={18} className="mt-0.5 text-green-500" />
                 <span>
                   5, Ragaswamy Apartment, Bhavani Nagar,
-                    MGR Main Road, Ayyapakkam, Chennai,Tamil Nadu — 600077
+                  MGR Main Road, Ayyapakkam, Chennai, Tamil Nadu — 600077
                 </span>
               </li>
             </ul>
@@ -103,10 +113,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 border-t border-gray-100 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-500 text-center md:text-left">
             © {new Date().getFullYear()} Hitam Digital. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
             <a href="/sitemap" className="text-gray-500 hover:text-gray-900">
               Sitemap
             </a>
