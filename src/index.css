@@ -11,9 +11,3 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
-@media (max-width: 1164px) {
-    .hide-at-1164 {
-        display: none !important;
-    }
-}

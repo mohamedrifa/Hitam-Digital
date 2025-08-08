@@ -1,19 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ServicePage from './pages/servicepage/ServicePage';
-import ContactUs from './pages/contactuspage/ContactUs';
-
+import RouteLayout from './layout/RouteLayout';
+import ContactPage from './pages/contactuspage/ContactUsPage';
 
 const App = () => {
   return (
-    <>
-      <Router>
-        <Routes>
+    <Router>
+      <Routes>
+        <Route element={<RouteLayout />}>
           <Route path="/service" element={<ServicePage />} />
-          <Route path="/contactus" element={<ContactUs />} />
-        </Routes>
-      </Router>
-    </>
+          <Route path="/contactus" element={<ContactPage />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 };
 
