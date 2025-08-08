@@ -61,3 +61,124 @@ export const faqs = [
     a: "We use KPIs specific to each service: for marketing, metrics like CTR, conversion rate, and ROI; for development, performance, uptime, and user feedback; for apps, install rates, retention, and feature adoption. All tracked in detailed reports.",
   },
 ];
+
+
+// ⚠️ All data below is fictional for demo.
+export const CASE_STUDIES = [
+  {
+    id: 1,
+    slug: "aurora-lens-studio",
+    company: "Aurora Lens Studio",
+    metric: "+138%",
+    label: "sessions in 12 weeks",
+    image:
+      "https://images.unsplash.com/photo-1519183071298-a2962eadc4c2?q=80&w=1200&auto=format&fit=crop",
+    overview:
+      "Boutique photography studio in Bangalore. We rebuilt their booking flow, improved local SEO, and launched performance ads to lift bookings.",
+    results: [
+      { value: "+138%", label: "Sessions Growth" },
+      { value: "+157%", label: "Organic Clicks" },
+      { value: "5.4%", label: "Booking Conversion" },
+      { value: "₹685", label: "Cost Per Lead" }
+    ],
+    execution: [
+      { title: "Foundations", desc: "GA4 + CAPI, GBP cleanup, keyword mapping." },
+      { title: "Experience", desc: "Single-step booking, faster pages, trust." },
+      { title: "Demand", desc: "Search & Meta ads, lead magnets, emails." },
+      { title: "Scale", desc: "Bundles, UGC, CRO tests." }
+    ],
+  },
+  {
+    id: 2,
+    slug: "swiftfit",
+    company: "SwiftFit",
+    metric: "+105%",
+    label: "app installs after UA revamp",
+    image:
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop",
+    overview:
+      "Fitness app. We rebuilt the UA stack (Meta + UAC), fixed event mapping, and iterated on creatives to reduce CPI.",
+    results: [
+      { value: "−37%", label: "CPI" },
+      { value: "+22%", label: "D7 ROAS" },
+      { value: "+105%", label: "Installs" },
+      { value: "3.2×", label: "Creative Win Rate" }
+    ],
+    execution: [
+      { title: "Attribution", desc: "SKAN + GA4 events; clear funnel." },
+      { title: "Creatives", desc: "Hook testing, UGC, value props." },
+      { title: "Bids/Budgets", desc: "Incrementality checks; guardrails." },
+      { title: "Lifecycle", desc: "Onboarding flows; paywall A/B." }
+    ],
+  },
+  {
+    id: 3,
+    slug: "clearledger",
+    company: "ClearLedger",
+    metric: "+265%",
+    label: "MRR after pricing experiment",
+    image:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop",
+    overview:
+      "SaaS bookkeeping tool. Ran pricing tests, simplified paywall, and added self-serve onboarding to lift trial→paid.",
+    results: [
+      { value: "+265%", label: "MRR" },
+      { value: "+18 pts", label: "Trial→Paid" },
+      { value: "−21%", label: "Time-to-Value" },
+      { value: "92", label: "NPS (Early Cohort)" }
+    ],
+    execution: [
+      { title: "Research", desc: "WTP survey; segment willingness bands." },
+      { title: "Pricing", desc: "Tier names; value metric clarity." },
+      { title: "Onboarding", desc: "Checklists; sample data mode." },
+      { title: "Lifecycle", desc: "Product emails; nudges." }
+    ],
+  },
+  {
+    id: 4,
+    slug: "haven-living",
+    company: "HavenLiving",
+    metric: "+557%",
+    label: "IG engagement via creators",
+    image:
+      "https://images.unsplash.com/photo-1520975682031-a94005a23d5e?q=80&w=1200&auto=format&fit=crop",
+    overview:
+      "Home & lifestyle DTC. Built creator program and content calendar to drive IG saves, reach, and assisted revenue.",
+    results: [
+      { value: "+557%", label: "IG Engagement" },
+      { value: "3.8×", label: "Reels Reach" },
+      { value: "+42%", label: "Email Revenue" },
+      { value: "4.6★", label: "Avg Product Rating" }
+    ],
+    execution: [
+      { title: "UGC Engine", desc: "Briefs, hooks, batch shooting." },
+      { title: "Calendar", desc: "Themes, promos, launches." },
+      { title: "Tracking", desc: "UTMs + view-through rules." },
+      { title: "Lifecycle", desc: "Creator content in emails." }
+    ],
+  },
+  {
+    id: 5,
+    slug: "freightone",
+    company: "FreightOne",
+    metric: "+1.1K",
+    label: "B2B leads from LinkedIn",
+    image:
+      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1200&auto=format&fit=crop",
+    overview:
+      "Logistics platform. ABM + ICP targeting on LinkedIn with lead magnets and navigator workflows.",
+    results: [
+      { value: "+1.1K", label: "Leads" },
+      { value: "+31%", label: "MQL→SQL Rate" },
+      { value: "−19%", label: "CPL" },
+      { value: "12", label: "Enterprise Pilots" }
+    ],
+    execution: [
+      { title: "ICP/ABM", desc: "Firmographic filters; lists; oppty fit." },
+      { title: "Content", desc: "Case decks; calculators; webinars." },
+      { title: "Routing", desc: "Scoring; SDR alerts; SLAs." },
+      { title: "Retarget", desc: "Doc ads; video view pools." }
+    ],
+  },
+];
+
