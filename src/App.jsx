@@ -4,18 +4,20 @@ import ServicePage from './pages/servicepage/ServicePage';
 import RouteLayout from './layout/RouteLayout';
 import ContactPage from './pages/contactuspage/ContactUsPage';
 import ErrorPage from './pages/errorpage/ErrorPage';
+import WhyChooseUs from './components/career/WhyChooseUs';
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route element={<RouteLayout />}>
-          <Route path="/service" element={<ServicePage />} />
-          <Route path="/contactus" element={<ContactPage />} />
-        </Route>
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </Router>
+    <WhyChooseUs/>
+    // <Router>
+    //   <Routes>
+    //     <Route element={<RouteLayout />}>
+    //       <Route path="/service" element={<ServicePage />} />
+    //       <Route path="/contactus" element={<ContactPage />} />
+    //     </Route>
+    //     <Route path="*" element={<ErrorPage />} />
+    //   </Routes>
+    // </Router>
   );
 };
 
