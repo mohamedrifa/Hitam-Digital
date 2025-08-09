@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { FiPhoneCall, FiMail } from "react-icons/fi";
-import { Link } from "react-router-dom"; // <-- Added
+import { Link } from "react-router-dom";
 import ServicePopup from "./Servicepopup";
 
 const Navbar = () => {
@@ -16,7 +16,6 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
-  // Close on click outside / Esc
   useEffect(() => {
     const onDown = (e) => {
       if (e.key === "Escape") closeAll();
@@ -38,14 +37,16 @@ const Navbar = () => {
       <div ref={wrapRef} className="relative">
         {/* Desktop */}
         <div className="max-w-7xl mx-auto items-center justify-between hidden md:flex py-4 px-6">
-          <img
-            src="https://ik.imagekit.io/iufkpclvp/HItam%20Newgen/Digital%20Copy1%20(1).png?updatedAt=1753858388322"
-            alt="Hitam Digital"
-            className="h-10 w-auto shadow-2xl hidden md:block"
-          />
+          <Link to="/">
+            <img
+              src="https://ik.imagekit.io/iufkpclvp/HItam%20Newgen/Digital%20Copy1%20(1).png?updatedAt=1753858388322"
+              alt="Hitam Digital"
+              className="h-10 w-auto shadow-2xl hidden md:block"
+            />
+          </Link>
 
           <nav className="flex items-center space-x-6 text-sm font-medium text-gray-800">
-            <a href="#home" className="hover:text-green-600">Home</a>
+            <Link to="/" className="hover:text-green-600">Home</Link>
 
             <button
               onClick={toggleServices}
@@ -59,14 +60,13 @@ const Navbar = () => {
               />
             </button>
 
-            {/* Updated to Link */}
             <Link to="/testimonial" className="hover:text-green-600">
               Testimonial
             </Link>
 
-            <button className="hover:text-green-600">About us</button>
-            <a href="#blog" className="hover:text-green-600">Blog</a>
-            <a href="#contact" className="hover:text-green-600">Contact</a>
+            <Link to="/about" className="hover:text-green-600">About Us</Link>
+            <Link to="/blog" className="hover:text-green-600">Blog</Link>
+            <Link to="/contact" className="hover:text-green-600">Contact</Link>
           </nav>
 
           <div className="flex items-center space-x-5 text-sm text-gray-800">
@@ -83,7 +83,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Desktop Services Dropdown */}
         {servicesOpen && (
           <div className="hidden md:block absolute left-0 right-0 top-full bg-white border-t shadow-xl">
             <ServicePopup />
@@ -93,11 +92,13 @@ const Navbar = () => {
         {/* Mobile header */}
         <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white rounded-b-xl shadow-sm">
           <div className="flex-1 flex justify-start">
-            <img
-              src="https://ik.imagekit.io/iufkpclvp/HItam%20Newgen/HD.png?updatedAt=1753959530388"
-              alt="Hitam Mobile Logo"
-              className="h-12 w-auto"
-            />
+            <Link to="/">
+              <img
+                src="https://ik.imagekit.io/iufkpclvp/HItam%20Newgen/HD.png?updatedAt=1753959530388"
+                alt="Hitam Mobile Logo"
+                className="h-12 w-auto"
+              />
+            </Link>
           </div>
           <div className="flex items-center gap-3">
             <button className="p-2 rounded-full hover:bg-gray-100">
@@ -115,10 +116,11 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile menu & Services */}
         {menuOpen && (
           <div className="md:hidden mt-1 px-4 pb-4 pt-3 space-y-3 text-base font-medium text-gray-800 bg-white shadow rounded-b-xl">
-            <a href="#home" className="block hover:text-green-600">Home</a>
+            <Link to="/" className="block hover:text-green-600" onClick={closeAll}>
+              Home
+            </Link>
 
             <button
               onClick={toggleServices}
@@ -136,14 +138,19 @@ const Navbar = () => {
               </div>
             )}
 
-            {/* Updated to Link */}
-            <Link to="/testimonial" className="block hover:text-green-600">
+            <Link to="/testimonial" className="block hover:text-green-600" onClick={closeAll}>
               Testimonial
             </Link>
 
-            <button className="w-full text-left hover:text-green-600">About</button>
-            <a href="#blog" className="block hover:text-green-600">Blog</a>
-            <a href="#contact" className="block hover:text-green-600">Contact</a>
+            <Link to="/about" className="block hover:text-green-600" onClick={closeAll}>
+              About
+            </Link>
+            <Link to="/blog" className="block hover:text-green-600" onClick={closeAll}>
+              Blog
+            </Link>
+            <Link to="/contact" className="block hover:text-green-600" onClick={closeAll}>
+              Contact
+            </Link>
           </div>
         )}
       </div>
