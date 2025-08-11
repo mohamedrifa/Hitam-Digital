@@ -16,7 +16,7 @@ const ServiceDetail = ({
         <h1 className="text-[#0B1508] text-[32px] md:text-[40px] lg:text-4xl font-semibold leading-[36px] md:leading-[48px]">
           {title}
         </h1>
-        <p className="text-[#404040] text-[14px] lg:text-sm font-semibold mt-[14px]">
+        <p className="text-gray-900 text-[14px] lg:text-sm font-semibold mt-[14px]">
           {subtitle}
         </p>
       </div>
