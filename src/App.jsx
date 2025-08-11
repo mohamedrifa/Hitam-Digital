@@ -4,11 +4,12 @@ import ServicePage from './pages/servicepage/ServicePage';
 import RouteLayout from './layout/RouteLayout';
 import ContactPage from './pages/contactuspage/ContactUsPage';
 import ErrorPage from './pages/errorpage/ErrorPage';
-import WhyChooseUs from './components/career/WhyChooseUs';
+import CareerPage from './pages/careerPage/CareerPage';
+import BlogPage from './pages/blogpage/BlogPage';
 
 const App = () => {
   return (
-    <WhyChooseUs/>
+    <BlogPage/>
     // <Router>
     //   <Routes>
     //     <Route element={<RouteLayout />}>
