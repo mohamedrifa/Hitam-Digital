@@ -1,7 +1,7 @@
 import React from "react";
 import BlogAutoRow from "../../components/blog/BlogAutoRow";
 import EditorPicks from "../../components/blog/EditorPicks";
-
+import BlogList from "../../components/blog/BlogList";
 
 const BlogPage = () => {
    
@@ -9,6 +9,7 @@ const BlogPage = () => {
     <>
       <BlogAutoRow/>
       <EditorPicks />
+      <BlogList />
     </>
  )
 }
