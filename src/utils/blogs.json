@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "9 Top Landing Page Optimization Tools",
+    "date": "May 05, 2025",
+    "image": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop",
+    "description": "Discover the best tools to boost your landing page conversions and optimize for higher sales."
+  },
+  {
+    "id": 2,
+    "title": "How Generative AI Is Changing Search",
+    "date": "Apr 23, 2025",
+    "image": "https://images.unsplash.com/photo-1497215728101-495ccb1f327f?q=80&w=1200&auto=format&fit=crop",
+    "description": "Explore how generative AI is redefining search engine experiences and user interactions."
+  },
+  {
+    "id": 3,
+    "title": "AI and Content Creation for Agencies",
+    "date": "Apr 10, 2025",
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop",
+    "description": "Learn how agencies are using AI to streamline content creation and improve efficiency."
+  },
+  {
+    "id": 4,
+    "title": "Email Marketing That Actually Converts",
+    "date": "Mar 29, 2025",
+    "image": "https://images.unsplash.com/photo-1454165205744-3b78555e5572?q=80&w=1200&auto=format&fit=crop",
+    "description": "Proven strategies to craft email campaigns that generate more clicks and conversions."
+  },
+  {
+    "id": 5,
+    "title": "The Modern SEO Site Audit Checklist",
+    "date": "Mar 14, 2025",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+    "description": "A step-by-step checklist to perform a complete and effective SEO site audit in 2025."
+  },
+  {
+    "id": 6,
+    "title": "Design Systems for Faster Ship Cycles",
+    "date": "Feb 27, 2025",
+    "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1200&auto=format&fit=crop",
+    "description": "Discover how design systems can speed up product delivery without sacrificing quality."
+  },
+  {
+    "id": 7,
+    "title": "PPC Budgeting: Do More With Less",
+    "date": "Feb 09, 2025",
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop",
+    "description": "Smart strategies to optimize your PPC spend and maximize return on investment."
+  },
+  {
+    "id": 8,
+    "title": "Analytics: From Clicks to Revenue",
+    "date": "Jan 30, 2025",
+    "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop",
+    "description": "Turn raw data into actionable insights to drive business growth and profitability."
+  },
+  {
+    "id": 9,
+    "title": "Performance Web: Core Web Vitals 2025",
+    "date": "Jan 12, 2025",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+    "description": "Stay ahead with the latest Core Web Vitals benchmarks and performance tips."
+  },
+  {
+    "id": 10,
+    "title": "Brand Storytelling That Scales",
+    "date": "Dec 18, 2024",
+    "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop",
+    "description": "Learn how to craft brand stories that resonate and grow with your audience."
+  }
+]
