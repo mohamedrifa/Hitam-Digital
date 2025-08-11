@@ -1,5 +1,6 @@
 // src/components/BlogAutoRow.jsx
 import React, { useEffect, useRef, useMemo, useState } from "react";
+import Mailbox from '../../assets/blog/mailbox.png'
 
 const posts = [
   {
@@ -43,6 +44,11 @@ export default function BlogAutoRow({
   const cardWRef = useRef(0);
   const indexRef = useRef(0);
   const [paused, setPaused] = useState(false);
+  const [subscribeEmail, setSubscribeEmail] = useState("");
+
+  const handleSubscribe = () =>{
+    alert("Subscribed...");
+  }
 
   // duplicate so the loop is seamless
   const loopItems = useMemo(() => [...items, ...items], [items]);
@@ -104,6 +110,7 @@ export default function BlogAutoRow({
   }, [items.length, intervalMs, paused]);
 
   return (
+    <>
     <div
       className="relative bg-white px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto mt-10 sm:mt-16"
       onMouseEnter={() => setPaused(true)}
@@ -147,5 +154,53 @@ export default function BlogAutoRow({
         ))}
       </div>
     </div>
+
+
+    <div
+      className="w-full px-4 sm:px-6 py-[20px] flex justify-center items-center mt-8"
+      style={{
+        background:
+          "linear-gradient(129deg, rgba(247, 197, 0, 0.16) 1.9%, rgba(247, 197, 0, 0.40) 98.62%)",
+        backdropFilter: "blur(8.9px)",
+         WebkitBackdropFilter: "blur(8.9px)",
+         flexShrink: 0,
+      }}
+    >
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          {/* Left: icon + text */}
+          <div className="flex items-center gap-3">
+            <img
+              src={Mailbox}
+              alt="mail box"
+              loading="lazy"
+              className="w-[110px] h-[110px]"
+            />
+            <div className="text-left">
+              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0F2A10]">
+                JOIN THOUSANDS
+              </h3>
+              <p className="mt-1 text-sm text-[#0F2A10]/80">
+                of subscribers who get fresh content to help their business weekly.
+              </p>
+            </div>
+          </div>
+          {/* Right: form (UI only) */}
+          <form onSubmit={(e) => e.preventDefault()} className="flex w-full gap-3 sm:w-auto">
+            <input
+              type="email"
+              onChange={(value) => setSubscribeEmail(value)}
+              placeholder="Email"
+              className="h-10 sm:h-11 w-full sm:w-[360px] rounded-[10px] bg-white px-4 text-sm outline-none ring-1 ring-black/10 focus:ring-2 focus:ring-[#0B7C12]"
+            />
+            <button
+                onClick={() => handleSubscribe()}
+                className="inline-flex items-center bg-[#018002] hover:bg-green-600 text-white text-md font-semibold px-5 py-0 rounded-full transition duration-300"
+            >
+              SUBSCRIBE
+            </button>
+          </form>
+        </div>
+    </div>
+    </>
   );
 }
