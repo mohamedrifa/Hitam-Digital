@@ -1,4 +1,5 @@
-import React from "react";
+// src/components/MarketingImpact.jsx
+import React, { useEffect, useRef, useState } from "react";
 
 const Eyebrow = ({ children }) => (
   <p className="text-emerald-700 font-medium text-xs sm:text-sm">{children}</p>
@@ -22,12 +23,7 @@ const ResultCard = ({
 }) => (
   <div className="overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm flex flex-col">
     <div className="aspect-[16/11] w-full overflow-hidden">
-      <img
-        src={image}
-        alt={title}
-        className="h-full w-full object-cover"
-        loading="lazy"
-      />
+      <img src={image} alt={title} className="h-full w-full object-cover" loading="lazy" />
     </div>
 
     <div className={`${bg} px-3 py-2`}>
@@ -38,9 +34,7 @@ const ResultCard = ({
     <div className={`${bar} h-px w-full`} />
 
     {footer ? (
-      <div className="px-3 py-2 text-center text-[12px] text-neutral-800">
-        {footer}
-      </div>
+      <div className="px-3 py-2 text-center text-[12px] text-neutral-800">{footer}</div>
     ) : null}
 
     <div className="grid grid-cols-2 gap-3 px-3 pb-4 pt-2">
@@ -56,41 +50,39 @@ export default function MarketingImpact() {
     {
       image:
         "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
-      title: "Multiple-Location Orthodontic Practice Group",
-      subtitle: "Conversion Rate Optimization (CRO)",
-      footer: "",
+      title: "E-Commerce Fashion Brand",
+      subtitle: "Conversion Rate Optimization (CRO) & Website Redesign",
       stats: [
-        { value: "+226%", label: "Top 5 Keyword Rankings" },
-        { value: "+122%", label: "Monthly Leads" },
+        { value: "+230%", label: "Top 5 Keyword Rankings" },
+        { value: "+125%", label: "Monthly Leads" },
       ],
-      bg: "bg-amber-100",
-      bar: "bg-amber-200",
+      footer:
+        "We optimized the brand’s online store, improved user experience, and implemented targeted CRO strategies to significantly boost visibility and lead generation.",
     },
     {
       image:
         "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop",
-      title: "Business Factors",
-      subtitle: "SEO and Pay-Per-Click (PPC) Marketing",
-      footer: "",
+      title: "B2B SaaS Company",
+      subtitle:
+        "Search Engine Optimization, Targeted PPC Campaigns, and Bespoke Web Application Development",
       stats: [
-        { value: "+546%", label: "Conversion Rate" },
-        { value: "+11,400%", label: "Live Chat" },
+        { value: "+550%", label: "Conversion Rate" },
+        { value: "+11,500%", label: "Live Chat Engagement" },
       ],
-      bg: "bg-amber-100",
-      bar: "bg-amber-200",
+      footer:
+        "Our team combined precise ad targeting with an SEO overhaul and a tailored web application, resulting in record-breaking engagement and conversions.",
     },
     {
       image:
         "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?q=80&w=1200&auto=format&fit=crop",
-      title: "Image 3D",
-      subtitle: "Amazon Advertising",
-      footer: "",
+      title: "Tech & Electronics Retailer",
+      subtitle: "Amazon Advertising & Mobile App Development",
       stats: [
-        { value: "+350.26%", label: "Sales Volume" },
-        { value: "+451%", label: "Unit Sales" },
+        { value: "+355%", label: "Sales Volume" },
+        { value: "+460%", label: "Unit Sales" },
       ],
-      bg: "bg-amber-100",
-      bar: "bg-amber-200",
+      footer:
+        "Through data-driven Amazon campaigns and a custom-built shopping app, we elevated product visibility, enhanced the buying experience, and drove massive growth in sales.",
     },
   ];
 
@@ -101,61 +93,127 @@ export default function MarketingImpact() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-center">
           {/* left text */}
           <div>
-            <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-              How Digital Marketing Services Drive{" "}
-              <span className="block">Business Growth</span>
-            </h2>
+            <Reveal as="h2">
+              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900">
+                How Our Digital Marketing & Development Solutions Drive Business Growth
+              </h2>
+            </Reveal>
 
-            <div className="mt-1">
-              <Eyebrow>
-                Engage Your Target Customers at the Right Time on the Right Platform
-              </Eyebrow>
-            </div>
+            <Reveal as="div" delay={80}>
+              <div className="mt-1">
+                <Eyebrow>
+                  Engage Your Audience at the Right Time, on the Right Platform, with the Right Tools
+                </Eyebrow>
+              </div>
+            </Reveal>
 
-            <div className="prose prose-neutral mt-4 max-w-none text-[13px] leading-6">
-              <p>
-                Digital marketing services provide businesses of all sizes with an
-                opportunity to market their brand 24/7 at a low cost. From startups
-                to medium-sized enterprises to multiple-location companies, a
-                digital marketing company helps you expand your niche market reach
-                to offer goods and services to your target customers, irrespective
-                of time differences or location.
-              </p>
-              <p>
-                Hiring an internet marketing agency is one of the best ways to
-                reach your prospects while maintaining a robust relationship with
-                your existing clients. As long as your business has a strong digital
-                presence, your customers will always find you.
-              </p>
-              <p>
-                Since 2005, our digital marketing company has been partnering with{" "}
-                <span className="font-semibold text-emerald-700">hundreds of businesses</span>{" "}
-                in the United States to achieve their conversion goals. Throughout
-                the years, we’ve provided an array of custom digital marketing
-                services to our clients and generated the following results:
-              </p>
-            </div>
+            <Reveal as="div" delay={160}>
+              <div className="prose prose-neutral mt-4 max-w-none text-[13px] leading-6">
+                <p>
+                  At <span className="font-semibold text-emerald-700">Hitam Digital</span>, we help businesses of all sizes build a strong and lasting digital presence.
+                  From startups to enterprises, our strategies connect you with the right audience, strengthen brand trust, and drive measurable results.
+                </p>
+                <p>
+                  Our <strong>digital marketing services</strong> — including SEO, SMO, PPC, branding, and content strategy —
+                  ensure your message reaches the right audience at the perfect moment, through the most effective channels.
+                </p>
+                <p>
+                  Our <strong>development solutions</strong> — spanning custom websites, mobile applications,
+                  and scalable eCommerce platforms — are built to empower your business growth.
+                </p>
+                <p>By combining creative marketing with powerful technology, we help you:</p>
+                <ul>
+                  <li>Expand your reach and engage your ideal customers globally.</li>
+                  <li>Build a professional, high-performing digital platform for your brand.</li>
+                  <li>Increase leads, conversions, and customer loyalty.</li>
+                </ul>
+                <p>
+                  We don’t just aim for short-term wins — our focus is on creating sustainable growth that lasts.
+                  With Hitam Digital as your partner, your brand is always ready to meet evolving market demands.
+                </p>
+              </div>
+            </Reveal>
           </div>
 
-          {/* right hero (smaller) */}
-          <div className="relative">
-            <div className="rounded-xl rounded-tl-[160px]">
-              <img
-                src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Figure%20%E2%86%92%20Digital%20Marketing%20Services%20Drive%20Business%20Growth.png?updatedAt=1754896998003"
-                alt="Smiling professional"
-                className="h-auto w-[420px] md:w-[380px] lg:w-[520px] mb-6 object-contain"
-              />
+          {/* right hero image */}
+          <Reveal as="div" delay={120}>
+            <div className="relative">
+              <div className="rounded-xl rounded-tl-[160px]">
+                <img
+                  src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Figure%20%E2%86%92%20Digital%20Marketing%20Services%20Drive%20Business%20Growth.png?updatedAt=1754896998003"
+                  alt="Smiling professional"
+                  className="h-auto w-[420px] md:w-[380px] lg:w-[520px] mb-6 object-contain"
+                />
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
 
-        {/* results cards (denser) */}
+        {/* results cards */}
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {cards.map((c, idx) => (
-            <ResultCard key={idx} {...c} />
+            <Reveal key={c.title} delay={200 + idx * 120}>
+              <ResultCard {...c} />
+            </Reveal>
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+/* ---------------------------
+ * Reveal (scroll-in animation)
+ * - Fades in + slides up when entering viewport
+ * - No external libs, just IntersectionObserver
+ * Props:
+ *   - as: element tag to render (default 'div')
+ *   - delay: ms to stagger (default 0)
+ * --------------------------*/
+function Reveal({ as: Tag = "div", delay = 0, children }) {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Respect reduced motion preference
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = setTimeout(() => setVisible(true), delay);
+            observer.unobserve(entry.target);
+            // cleanup timeout if unmounted early
+            el.__revealTimeoutId = id;
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      if (el?.__revealTimeoutId) clearTimeout(el.__revealTimeoutId);
+    };
+  }, [delay]);
+
+  return (
+    <Tag
+      ref={ref}
+      className={`will-change-transform transition-all duration-700 ease-out ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      }`}
+    >
+      {children}
+    </Tag>
   );
 }

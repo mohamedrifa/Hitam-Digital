@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 /* Icons */
 const CheckIcon = () => (
@@ -42,47 +42,47 @@ const PALETTE = {
   amber:    { dark: "#D97706", light: "#FFF8E1" },
 };
 
-/* Content */
+/* Updated content */
 const FEATURES = [
   {
-    title: "Data-Driven Digital Marketing Services",
+    title: "Data-Driven Marketing & Development",
     body:
-      "We use research and real-time analytics to send the right message on the right channel. Our team audits strengths, gaps, and opportunities (SWOT) and turns metrics into clear, actionable insights.",
+      "Every choice we make is guided by data-driven insights and strategic thinking. From identifying high-converting marketing channels to optimizing website performance, we fine-tune campaigns and platforms for maximum ROI.",
     color: PALETTE.blue,
     icon: CheckIcon,
   },
   {
-    title: "Industry Experts",
+    title: "Industry-Leading Experts",
     body:
-      "A senior team with 10+ years across performance, brand, and product marketing. We track trends, build goal-oriented strategies, and execute to proven guidelines across Shopify, marketplaces, and more.",
+      "Our specialists bring years of combined experience in marketing and technology. We track trends in SEO, PPC, branding, app development, eCommerce, and UI/UX to keep your brand ahead of the competition.",
     color: PALETTE.teal,
     icon: CogIcon,
   },
   {
-    title: "Custom Digital Marketing Framework",
+    title: "Custom Growth Frameworks",
     body:
-      "360° audit → KPIs → messaging → integrated customer journey. We design a structured framework that aligns your brand personality and optimizes every digital touchpoint.",
+      "We take a 360° approach: personalized marketing campaigns aligned with your goals and custom-built websites, apps, and tools that deliver consistent brand experiences across all touchpoints.",
     color: PALETTE.deepTeal,
     icon: GridIcon,
   },
   {
-    title: "Omnichannel Personalization",
+    title: "Omnichannel Presence",
     body:
-      "Customers expect tailored experiences. We analyze audiences and craft personalized journeys across web, search, social, email, and ads to increase revenue and loyalty.",
+      "Your customers interact with your brand across search, social, mobile apps, and online stores. We ensure visibility everywhere with targeted campaigns and connected platforms for consistency and loyalty.",
     color: PALETTE.lime,
     icon: TargetIcon,
   },
   {
-    title: "Campaign Monitoring & Evaluation",
+    title: "Continuous Monitoring & Optimization",
     body:
-      "We benchmark, monitor, and iterate. With analytics and regular reporting, we refine targeting, creatives, and budgets so every sprint moves KPIs forward.",
+      "We don’t just launch — we refine. From ad targeting to website speed and app upgrades, we track, analyze, and optimize so your marketing and technology deliver ongoing value.",
     color: PALETTE.green,
     icon: ChartIcon,
   },
   {
-    title: "Competitive Pricing",
+    title: "Transparent & Competitive Pricing",
     body:
-      "Get an expert, customer-centric team without breaking the bank. Transparent scopes, flexible plans, and white-label options available for agencies.",
+      "Get high-quality marketing and development without hidden costs. We offer clear, competitive pricing tailored to your needs, delivering enterprise-level solutions within budget.",
     color: PALETTE.amber,
     icon: TagIcon,
   },
@@ -94,56 +94,114 @@ export default function HitamSection() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16">
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-semibold text-[#0f2a10] text-2xl sm:text-3xl">
-            Why Choose Hitam As Your Digital Marketing Agency
-          </h2>
-          <p className="mt-2 text-sm sm:text-base text-emerald-700">
-            Boost Your Revenue Growth Rate and Achieve Online Success
-          </p>
+          <Reveal as="h2">
+            <h2 className="font-semibold text-[#0f2a10] text-2xl sm:text-3xl">
+              Why Choose Hitam Digital as Your Growth Partner
+            </h2>
+          </Reveal>
+          <Reveal as="p" delay={80}>
+            <p className="mt-2 text-sm sm:text-base text-emerald-700">
+              Increase your profits, elevate your brand presence, and create solutions designed for tomorrow.
+            </p>
+          </Reveal>
         </div>
 
-        {/* Cards */}
-        <div className="mt-10 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map(({ title, body, color, icon: Icon }) => (
-            <article
-              key={title}
-              className="rounded-xl shadow-sm overflow-hidden border border-black/5"
-              style={{
-                // single gradient for the whole card
-                background: `linear-gradient(to bottom, ${color.dark} 0%, ${color.dark} 28%, ${color.light} 28%, ${color.light} 100%)`,
-              }}
-            >
-              {/* Top (dark) */}
-              <div className="flex items-center gap-2.5 px-4 py-3">
-                <span className="inline-flex items-center justify-center rounded-md p-1.5 bg-white/20">
-                  <Icon />
-                </span>
-                <h3 className="text-sm font-semibold text-white">{title}</h3>
-              </div>
+        {/* Cards (equal-height) */}
+        <div className="mt-10 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+          {FEATURES.map(({ title, body, color, icon: Icon }, idx) => (
+            <Reveal key={title} delay={140 + idx * 120}>
+              <article
+                className="rounded-xl shadow-sm overflow-hidden border border-black/5 transform transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-md flex flex-col h-full"
+                style={{
+                  background: `linear-gradient(to bottom, ${color.dark} 0%, ${color.dark} 28%, ${color.light} 28%, ${color.light} 100%)`,
+                }}
+              >
+                {/* Header */}
+                <div className="flex items-center gap-2.5 px-4 py-3">
+                  <span className="inline-flex items-center justify-center rounded-md p-1.5 bg-white/20">
+                    <Icon />
+                  </span>
+                  <h3 className="text-sm font-semibold text-white">{title}</h3>
+                </div>
 
-              {/* Divider (soft) */}
-              <div className="h-px bg-white/20 mx-4" />
+                <div className="h-px bg-white/20 mx-4" />
 
-              {/* Bottom (light) */}
-              <div className="px-4 py-4">
-                <p className="text-[13px] leading-6 text-[#233123]">
-                  {body}
-                </p>
-              </div>
-            </article>
+                {/* Body fills remaining height */}
+                <div className="px-4 py-4 flex-grow">
+                  <p className="text-[13px] leading-6 text-[#233123]">{body}</p>
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-8 flex justify-center">
-          <a
-            href="#contact"
-            className="rounded-full bg-[#F8BD3C] hover:bg-[#f4ad16] text-[#0f2a10] text-xs sm:text-sm font-semibold px-6 py-3 shadow ring-1 ring-amber-900/10"
-          >
-            GROW MY LEADS NOW
-          </a>
-        </div>
+        <Reveal as="div" delay={140 + FEATURES.length * 120}>
+          <div className="mt-8 flex justify-center">
+            <a
+              href="#contact"
+              className="rounded-full bg-[#F8BD3C] hover:bg-[#f4ad16] text-[#0f2a10] text-xs sm:text-sm font-semibold px-6 py-3 shadow ring-1 ring-amber-900/10"
+            >
+              Start Growing with Hitam Digital
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
+  );
+}
+
+/* ---------------------------
+ * Reveal (scroll-in animation)
+ * - Fades in + slides up when entering viewport
+ * - No external libs, just IntersectionObserver
+ * Props:
+ *   - as: element tag to render (default 'div')
+ *   - delay: ms to stagger (default 0)
+ * --------------------------*/
+function Reveal({ as: Tag = "div", delay = 0, children }) {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Respect reduced motion
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = setTimeout(() => setVisible(true), delay);
+            observer.unobserve(entry.target);
+            el.__revealTimeoutId = id;
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      if (el?.__revealTimeoutId) clearTimeout(el.__revealTimeoutId);
+    };
+  }, [delay]);
+
+  return (
+    <Tag
+      ref={ref}
+      className={`will-change-transform transition-all duration-700 ease-out ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      }`}
+    >
+      {children}
+    </Tag>
   );
 }

@@ -70,7 +70,7 @@ export default function Footer() {
             <div className="mt-3">
               <LinkItem href="/">Home</LinkItem>
               <LinkItem href="/services">Services</LinkItem>
-              <LinkItem href="/about">About</LinkItem>
+              <LinkItem href="/about_us">About</LinkItem>
               <LinkItem href="/projects">Projects</LinkItem>
               <LinkItem href="/blog">Blog</LinkItem>
               <LinkItem href="/contact">Contact</LinkItem>
