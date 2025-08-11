@@ -9,16 +9,17 @@ import BlogPage from './pages/blogpage/BlogPage';
 
 const App = () => {
   return (
-    <BlogPage/>
-    // <Router>
-    //   <Routes>
-    //     <Route element={<RouteLayout />}>
-    //       <Route path="/service" element={<ServicePage />} />
-    //       <Route path="/contactus" element={<ContactPage />} />
-    //     </Route>
-    //     <Route path="*" element={<ErrorPage />} />
-    //   </Routes>
-    // </Router>
+    <Router>
+      <Routes>
+        <Route element={<RouteLayout />}>
+          <Route path="/service" element={<ServicePage />} />
+          <Route path="/contactus" element={<ContactPage />} />
+          <Route path="/career" element={<CareerPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+        </Route>
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </Router>
   );
 };
 

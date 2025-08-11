@@ -133,7 +133,6 @@ export default function BlogList() {
               ${
                 n === current
                   ? `text-[#0F2A10] font-medium
-                     border border-[rgba(0,0,0,0.25)]
                      bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)]
                      backdrop-blur-[8.9px]`
                   : `bg-[#F5F5F5] ring-1 ring-neutral-200 hover:bg-[#ECECEC]`

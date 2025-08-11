@@ -2,4 +2,15 @@
     "page": "service",
     "title": "We Design, We Develop, and\n We Deliver",
     "subtitle": "Each service we offer is grounded in strategy and scaled with the latest tech to ensure real-world business results."
-}]
+},
+{
+    "page": "career",
+    "title": "Join Our Team",
+    "subtitle": "We are always looking for talented individuals to join our team. Explore our current openings and apply today!"
+},
+{
+    "page": "blog",
+    "title": "Latest Insights",
+    "subtitle": "Stay updated with the latest trends and insights in the digital world through our blog."
+}
+]

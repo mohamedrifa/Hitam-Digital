@@ -112,7 +112,7 @@ export default function BlogAutoRow({
   return (
     <>
     <div
-      className="relative bg-white px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto mt-10 sm:mt-16"
+      className="relative bg-white px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto mt-4 sm:mt-5"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
