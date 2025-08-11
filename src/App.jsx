@@ -4,6 +4,7 @@ import RouteLayout from "./layout/RouteLayout";
 import CaseStudyPage from "./pages/CaseStudyPage";
 import CaseStudyOverview from "./pages/CaseStudyOverview";
 import Testimonial from "./pages/testimonial/Testimonial";
+import Aboutus from "./pages/about_us/Aboutus";
 
 // ✅ lazy() must be given a function returning import()
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/projects" element={<CaseStudyPage/>}/>
             <Route path="/projects/:slug" element={<CaseStudyOverview/>}/>
             <Route path="/testimonial" element={<Testimonial />} />
+            <Route path="/about_us" element={<Aboutus />} />
 
             
           </Route>

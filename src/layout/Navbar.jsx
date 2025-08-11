@@ -64,7 +64,7 @@ const Navbar = () => {
               Testimonial
             </Link>
 
-            <Link to="/about" className="hover:text-green-600">About Us</Link>
+            <Link to="/about_us" className="hover:text-green-600">About Us</Link>
             <Link to="/blog" className="hover:text-green-600">Blog</Link>
             <Link to="/contact" className="hover:text-green-600">Contact</Link>
           </nav>
@@ -142,7 +142,7 @@ const Navbar = () => {
               Testimonial
             </Link>
 
-            <Link to="/about" className="block hover:text-green-600" onClick={closeAll}>
+            <Link to="/about_us" className="block hover:text-green-600" onClick={closeAll}>
               About
             </Link>
             <Link to="/blog" className="block hover:text-green-600" onClick={closeAll}>

@@ -1,9 +1,10 @@
 import React, { lazy, Suspense } from "react";
-import BlogSection from "../components/home/BlogSection";
-import CTASection from "../components/home/CTASection";
 import HeroSection from "../components/Home/HeroSection";
+import CTASection from "../components/Home/CTASection";
 import HowWeWork from "../components/Home/HowWeWork";
 import PortfolioSection from "../components/Home/PortfolioSection";
+import CompactBlogSection from "../components/Home/BlogSection";
+
 
 
 // ✅ lazy() must also be a function here
@@ -15,12 +16,13 @@ const HomePage = () => {
     <div>
 
       <Suspense fallback={<div>Loading clients...</div>}>
-        <HeroSection/>
+        <HeroSection />
+        
         <HowWeWork />
         <PortfolioSection />
         <OurClients />
         <FAQSection/>
-        <BlogSection/>
+        <CompactBlogSection />
         <CTASection/>
      
       </Suspense>
