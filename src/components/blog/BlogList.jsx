@@ -1,24 +1,26 @@
 // src/components/BlogList.jsx
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useId, useDeferredValue, memo, useEffect } from "react";
 import posts from "../../utils/blogs.json";
-import { p } from "framer-motion/client";
 
-function ListCard({ item }) {
+const ListCard = memo(function ListCard({ item }) {
   return (
     <article
-      className="h-[164px] flex rounded-[12px] overflow-hidden border border-[rgba(0,0,0,0.15)]
+      className="group h-[164px] flex rounded-[12px] overflow-hidden border border-[rgba(0,0,0,0.15)]
                  bg-white/70 backdrop-blur-[6px] shadow-sm hover:shadow-md
                  transition-all duration-300 hover:scale-[1.01] cursor-pointer"
     >
       {/* Thumb */}
-      <div className="w-36 sm:w-40 lg:w-44 xl:w-48 h-full sm:h-full flex-none overflow-hidden">
+      <div className="w-36 sm:w-40 lg:w-44 xl:w-48 h-full flex-none overflow-hidden">
         <img
           src={item.image}
           alt={item.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
         />
       </div>
+
       {/* Body */}
       <div className="flex-1 p-3 sm:p-4 bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)]">
         <p className="text-[12px] text-neutral-700">{item.date}</p>
@@ -31,31 +33,41 @@ function ListCard({ item }) {
       </div>
     </article>
   );
-}
+});
 
 export default function BlogList() {
-  const [q, setQ] = useState("");
+  const [input, setInput] = useState("");
+  const query = useDeferredValue(input); // smooth typing
   const [page, setPage] = useState(1);
-  const pageSize = 8; // 3 columns × 3 rows
+  const pageSize = 8; // 2 cols × 4 rows
+  const searchId = useId();
 
   const filtered = useMemo(() => {
-    const term = q.trim().toLowerCase();
+    const term = query.trim().toLowerCase();
     if (!term) return posts;
     return posts.filter(
       (p) =>
         p.title.toLowerCase().includes(term) ||
         (p.description || "").toLowerCase().includes(term)
     );
-  }, [q]);
+  }, [query]);
 
-  const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
-  const current = Math.min(page, pageCount);
-  const start = (current - 1) * pageSize;
-  const shown = filtered.slice(start, start + pageSize);
+  const pageCount = useMemo(
+    () => Math.max(1, Math.ceil(filtered.length / pageSize)),
+    [filtered.length, pageSize]
+  );
+
+  // keep page in range if filter shrinks list
+  useEffect(() => {
+    if (page > pageCount) setPage(pageCount);
+  }, [page, pageCount]);
+
+  const start = (page - 1) * pageSize;
+  const shown = useMemo(() => filtered.slice(start, start + pageSize), [filtered, start, pageSize]);
 
   const go = (n) => setPage(Math.min(Math.max(1, n), pageCount));
 
-  // simple page list like 1 2 3 … last
+  // pagination model like: 1 2 3 … last (matches your design)
   const pagesToShow = useMemo(() => {
     if (pageCount <= 6) return Array.from({ length: pageCount }, (_, i) => i + 1);
     return [1, 2, 3, "…", pageCount];
@@ -66,24 +78,20 @@ export default function BlogList() {
       {/* Top bar: search aligned RIGHT */}
       <div className="mb-5 flex justify-end">
         <div className="relative w-full sm:w-80 md:w-96">
-          <label htmlFor="blog-search" className="sr-only">Search</label>
+          <label htmlFor={searchId} className="sr-only">Search</label>
           <div
-            className="
-              flex items-center gap-2 h-10 px-3
-              rounded-[12px]
-              bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)]
-              backdrop-blur-[8.9px]
-              shadow-sm transition focus-within:ring-2 focus-within:ring-emerald-500
-            "
+            className="flex items-center gap-2 h-10 px-3 rounded-[12px]
+                       bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)]
+                       backdrop-blur-[8.9px] shadow-sm transition
+                       focus-within:ring-2 focus-within:ring-emerald-500"
           >
-            <span className="text-[#0F2A10]/70">⌕</span>
+            <span aria-hidden className="text-[#0F2A10]/70">⌕</span>
             <input
-              id="blog-search"
+              id={searchId}
               type="text"
-              value={q}
-              onChange={(e) => { setQ(e.target.value); setPage(1); }}
+              value={input}
+              onChange={(e) => { setInput(e.target.value); setPage(1); }}
               placeholder="Search"
-              aria-label="Search posts"
               className="w-full bg-transparent text-sm text-[#0F2A10] placeholder-[#0F2A10]/60 outline-none"
             />
           </div>
@@ -99,67 +107,56 @@ export default function BlogList() {
 
       {/* Pagination */}
       <div className="mt-6 flex items-center justify-center gap-2">
-      {/* Prev */}
-      {
-        page > 1 && (
+        {page > 1 && (
           <button
             onClick={() => go(page - 1)}
-            disabled={page <= 1}
             aria-label="Previous page"
-            className={`h-8 w-8 rounded-[10px] inline-flex items-center justify-center
-                        bg-[#F5F5F5] ring-1 ring-neutral-200 hover:bg-[#ECECEC]
-                        disabled:opacity-40 disabled:cursor-not-allowed`}
+            className="h-8 w-8 rounded-[10px] inline-flex items-center justify-center
+                       bg-[#F5F5F5] ring-1 ring-neutral-200 hover:bg-[#ECECEC]"
           >
             ‹
           </button>
-        )
-      }
-      {/* Pages */}
-      {pagesToShow.map((n, i) =>
-        n === "…" ? (
-          <span
-            key={`e${i}`}
-            className="h-8 min-w-8 px-3 rounded-[10px] inline-flex items-center justify-center
-                       bg-[#F5F5F5] ring-1 ring-neutral-200 text-neutral-600"
-          >
-            …
-          </span>
-        ) : (
-          <button
-            key={n}
-            onClick={() => go(n)}
-            aria-current={n === current ? "page" : undefined}
-            className={`h-8 min-w-8 px-3 inline-flex items-center justify-center rounded-[10px] text-sm transition
-              ${
-                n === current
-                  ? `text-[#0F2A10] font-medium
-                     bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)]
-                     backdrop-blur-[8.9px]`
-                  : `bg-[#F5F5F5] ring-1 ring-neutral-200 hover:bg-[#ECECEC]`
-              }`}
-          >
-            {n}
-          </button>
-        )
-      )}
+        )}
 
-      {/* Next */}
-      {
-        page < pageCount && (
+        {pagesToShow.map((n, i) =>
+          n === "…" ? (
+            <span
+              key={`e${i}`}
+              className="h-8 min-w-8 px-3 rounded-[10px] inline-flex items-center justify-center
+                         bg-[#F5F5F5] ring-1 ring-neutral-200 text-neutral-600"
+            >
+              …
+            </span>
+          ) : (
+            <button
+              key={n}
+              onClick={() => go(n)}
+              aria-current={n === page ? "page" : undefined}
+              className={`h-8 min-w-8 px-3 inline-flex items-center justify-center rounded-[10px] text-sm transition
+                ${
+                  n === page
+                    ? `text-[#0F2A10] font-medium
+                       bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)]
+                       backdrop-blur-[8.9px]`
+                    : `bg-[#F5F5F5] ring-1 ring-neutral-200 hover:bg-[#ECECEC]`
+                }`}
+            >
+              {n}
+            </button>
+          )
+        )}
+
+        {page < pageCount && (
           <button
             onClick={() => go(page + 1)}
-            disabled={page >= pageCount}
             aria-label="Next page"
-            className={`h-8 w-8 rounded-[10px] inline-flex items-center justify-center
-                        bg-[#F5F5F5] ring-1 ring-neutral-200 hover:bg-[#ECECEC]
-                        disabled:opacity-40 disabled:cursor-not-allowed`}
+            className="h-8 w-8 rounded-[10px] inline-flex items-center justify-center
+                       bg-[#F5F5F5] ring-1 ring-neutral-200 hover:bg-[#ECECEC]"
           >
             ›
           </button>
-        )
-      }
-    </div>
-
+        )}
+      </div>
     </section>
   );
 }
