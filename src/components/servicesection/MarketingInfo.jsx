@@ -54,7 +54,7 @@ const MarketingInfo = () => {
     );
   }
 
-  const { content_one, content_two } = aboutContent;
+  const { img, content_one, content_two } = aboutContent;
 
   return (
     <>
@@ -65,7 +65,7 @@ const MarketingInfo = () => {
 
         <div className="overflow-hidden rounded-[16px] w-full order-2 lg:order-none">
           <img
-            src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/service/digital1.png?updatedAt=1754555509101"
+            src={img}
             alt="Thumbs Up Executive"
             className="w-full object-contain transition-transform duration-300 hover:scale-105"
           />
