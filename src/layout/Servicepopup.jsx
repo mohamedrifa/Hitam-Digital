@@ -8,6 +8,7 @@ const GIRL =
   "https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/attractive-enthusiastic-armenian-young-woman-curly-hair-pointing-looking-intrigued-left-show-index-fingers-awesome-blank-space-advertisement-smirking-joyfully-introducing-product-white-background%201.png?updatedAt=1754639780425";
 const RIGHT_FLORAL =
   "https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Background%20Vector%20(1).png?updatedAt=1754639892982";
+  
 
 // DATA
 const CATEGORIES = [
