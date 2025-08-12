@@ -75,7 +75,7 @@ const ServicePopup = () => {
                 <img
                   src={GIRL}
                   alt="Girl pointing"
-                  className="absolute -bottom-64 left-2 w-[300px] select-none pointer-events-none z-10"
+                  className="absolute -bottom-68 left-2 w-[300px] select-none pointer-events-none z-10"
                 />
               </div>
             </div>

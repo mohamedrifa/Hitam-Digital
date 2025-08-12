@@ -1,0 +1,29 @@
+{
+    "backgroundImage": "https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Portfolio%20Container.png?updatedAt=1754572698441",
+    "filters": ["All Work", "Web Design", "Digital Marketing", "Branding"],
+    "circleImages": {
+        "All Work": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
+        "Web Design": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop",
+        "Digital Marketing": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop",
+        "Branding": "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=800&auto=format&fit=crop"
+    },
+    "projects": [
+        { "id": "web-1", "category": "Web Design", "year": "2024", "company": "PixelForge", "title": "Responsive Commerce Site", "image": "https://picsum.photos/seed/web1/600/420" },
+        { "id": "web-2", "category": "Web Design", "year": "2024", "company": "BlueWave", "title": "Corporate Portfolio Revamp", "image": "https://picsum.photos/seed/web2/600/420" },
+        { "id": "web-3", "category": "Web Design", "year": "2023", "company": "NovaLabs", "title": "Landing Page Sprint", "image": "https://picsum.photos/seed/web3/600/420" },
+        { "id": "web-4", "category": "Web Design", "year": "2023", "company": "CraftByte", "title": "Blog + Docs System", "image": "https://picsum.photos/seed/web4/600/420" },
+        { "id": "web-5", "category": "Web Design", "year": "2023", "company": "EverPeak", "title": "Startup Marketing Site", "image": "https://picsum.photos/seed/web5/600/420" },
+
+        { "id": "dm-1", "category": "Digital Marketing", "year": "2024", "company": "AdPilot", "title": "Meta + Google UA Scale", "image": "https://picsum.photos/seed/dm1/600/420" },
+        { "id": "dm-2", "category": "Digital Marketing", "year": "2024", "company": "GrowthLoop", "title": "SEO + Content Engine", "image": "https://picsum.photos/seed/dm2/600/420" },
+        { "id": "dm-3", "category": "Digital Marketing", "year": "2023", "company": "ClickMint", "title": "B2B LinkedIn ABM", "image": "https://picsum.photos/seed/dm3/600/420" },
+        { "id": "dm-4", "category": "Digital Marketing", "year": "2023", "company": "SparkCart", "title": "Feed & Retargeting", "image": "https://picsum.photos/seed/dm4/600/420" },
+        { "id": "dm-5", "category": "Digital Marketing", "year": "2023", "company": "BrandNest", "title": "Email Lifecycle Setup", "image": "https://picsum.photos/seed/dm5/600/420" },
+
+        { "id": "brand-1", "category": "Branding", "year": "2024", "company": "Minty", "title": "Name + Identity System", "image": "https://picsum.photos/seed/brand1/600/420" },
+        { "id": "brand-2", "category": "Branding", "year": "2024", "company": "Orion", "title": "Packaging & Guidelines", "image": "https://picsum.photos/seed/brand2/600/420" },
+        { "id": "brand-3", "category": "Branding", "year": "2023", "company": "Terra", "title": "Rebrand Rollout", "image": "https://picsum.photos/seed/brand3/600/420" },
+        { "id": "brand-4", "category": "Branding", "year": "2023", "company": "AeroFit", "title": "Logo System + Grid", "image": "https://picsum.photos/seed/brand4/600/420" },
+        { "id": "brand-5", "category": "Branding", "year": "2023", "company": "CocoHome", "title": "Lifestyle Visual Language", "image": "https://picsum.photos/seed/brand5/600/420" }
+    ]
+}
