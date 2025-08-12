@@ -75,7 +75,7 @@ export default function PortfolioSection() {
 </Link>
         </div>
 
-        {/* Right: horizontal project list */}
+        
         <div className="relative w-full md:w-[620px]">
           <div className="overflow-x-auto snap-x snap-mandatory no-scrollbar">
             <div className="flex gap-4 md:gap-8 w-max px-1">
