@@ -17,7 +17,6 @@ const HomePage = () => {
 
       <Suspense fallback={<div>Loading clients...</div>}>
         <HeroSection />
-        
         <HowWeWork />
         <PortfolioSection />
         <OurClients />
