@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import ServiceAboutData from "../../utils/ServiceAboutData.json";
+import ServiceAboutData from "../../utils/servicedata/MarketingInfo.json";
 import GoogleLogo from "../../assets/servicesection/google.png";
 import ClutchLogo from "../../assets/servicesection/clutch.png";
 import UpCityLogo from "../../assets/servicesection/upcity.png";

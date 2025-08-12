@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HomeIcon } from '@heroicons/react/24/outline';
 import { useLocation, Link } from 'react-router-dom';
-import HeroData from '../../utils/HeroData.json';
+import HeroData from '../../utils/commondata/HeroData.json';
 import vector1 from '../../assets/servicesection/vector_1.png';
 import vector2 from '../../assets/servicesection/vector_2.png';
 
