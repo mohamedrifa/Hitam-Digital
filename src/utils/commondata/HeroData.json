@@ -9,8 +9,13 @@
         "subtitle": "We are always looking for talented individuals to join our team. Explore our current openings and apply today!"
     },
     {
-        "page": "blog",
+        "page": "blogs",
         "title": "Latest Insights",
         "subtitle": "Stay updated with the latest trends and insights in the digital world through our blog."
+    },
+    {
+        "page": "contactus",
+        "title": "Get in Touch",
+        "subtitle": "Have questions or need assistance? Contact us today and our team will be happy to help."
     }
 ]

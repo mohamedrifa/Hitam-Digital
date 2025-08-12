@@ -11,13 +11,15 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        {/* Pages that should show Navbar/CTA/Footer */}
         <Route element={<RouteLayout />}>
           <Route path="/service" element={<ServicePage />} />
           <Route path="/contactus" element={<ContactPage />} />
           <Route path="/career" element={<CareerPage />} />
           <Route path="/blogs" element={<BlogPage />} />
-          <Route path="*" element={<ErrorPage />} />
         </Route>
+
+        {/* Catch-all 404 WITHOUT layout */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
