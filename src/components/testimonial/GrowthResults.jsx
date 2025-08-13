@@ -37,7 +37,7 @@ const GrowthResults = () => {
         <motion.p
           variants={fadeUp}
           custom={1}
-          className="mt-4 text-center text-sm md:text-[13.5px] leading-relaxed text-[#6b6b6b]"
+          className="mt-4 text-justify md:text-center text-sm md:text-[13.5px] leading-relaxed text-[#6b6b6b]"
         >
           As your potential digital marketing partner, we offer more than
           standard online marketing strategies. Rather, we
@@ -46,10 +46,11 @@ const GrowthResults = () => {
           company’s needs and goals.
         </motion.p>
 
+
         <motion.p
           variants={fadeUp}
           custom={2}
-          className="mt-5 text-center text-[12.5px] md:text-[13px] leading-relaxed text-[#6b6b6b]"
+          className="mt-5 text-justify md:text-center text-[12.5px] md:text-[13px] leading-relaxed text-[#6b6b6b]"
         >
           Hitam Internet Marketing Agency is an industry-leading digital marketing
           service provider that delivers performance-driven marketing strategies. We
@@ -63,7 +64,7 @@ const GrowthResults = () => {
         <motion.p
           variants={fadeUp}
           custom={3}
-          className="mt-2 text-center text-[12.5px] md:text-[13px] leading-relaxed text-[#6b6b6b]"
+          className="mt-2 text-justify md:text-center text-[12.5px] md:text-[13px] leading-relaxed text-[#6b6b6b]"
         >
           From startups to enterprises, we are the marketing agency businesses trust to
           take care of their digital presence.
@@ -145,13 +146,6 @@ const GrowthResults = () => {
                 Our digital marketing company used SEO &amp; PPC to increase the overall
                 traffic to the new Farah website by 664%…
               </p>
-
-              <a
-                href="#"
-                className="mt-3 inline-block text-[12.5px] text-[#018002] underline underline-offset-2"
-              >
-                Read Farah’s Case Study »
-              </a>
             </div>
           </motion.article>
 
@@ -221,17 +215,12 @@ const GrowthResults = () => {
                 Hitam digital marketing experts developed a modern WordPress website for
                 Nationwide Construction…
               </p>
-
-              <a
-                href="#"
-                className="mt-3 inline-block text-[12.5px] text-[#018002] underline underline-offset-2"
-              >
-                Read Nationwide Construction’s Case Study »
-              </a>
             </div>
           </motion.article>
         </motion.div>
 
+
+        
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -242,9 +231,7 @@ const GrowthResults = () => {
         >
           <motion.a
             href="#"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center justify-center rounded-full bg-[#018002] px-5 py-3 text-white text-[12.5px] md:text-[13px] font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#018002]"
+            className="inline-flex items-center bg-[#018002] hover:bg-green-600 text-white text-sm font-semibold px-6 py-2 rounded-full transition duration-300"
           >
             WORK WITH A TRUSTED MARKETING AGENCY
           </motion.a>

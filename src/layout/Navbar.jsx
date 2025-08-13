@@ -157,58 +157,58 @@ const Navbar = () => {
 
         {/* Mobile menu & Services */}
         {/* Mobile menu & Services */}
-{menuOpen && (
-  <div className="md:hidden mt-1 px-4 pb-4 pt-3 flex flex-col gap-3 text-base font-medium text-gray-800 bg-white shadow rounded-b-xl">
-    <NavLink to="/" end className={navLinkClass} onClick={closeAll}>
-      Home
-    </NavLink>
+        {menuOpen && (
+          <div className="md:hidden mt-1 px-4 pb-4 pt-3 flex flex-col gap-3 text-base font-medium text-gray-800 bg-white shadow rounded-b-xl">
+            <NavLink to="/" end className={navLinkClass} onClick={closeAll}>
+              Home
+            </NavLink>
 
-    <button
-      onClick={toggleServices}
-      className="flex items-center justify-between w-full py-2 hover:text-green-600"
-      aria-expanded={servicesOpen}
-      aria-controls="mobile-services"
-    >
-      Services
-      <IoIosArrowDown
-        className={`text-sm transition-transform ${servicesOpen ? "rotate-180" : ""}`}
-      />
-    </button>
+            <button
+              onClick={toggleServices}
+              className="flex items-center justify-between w-full py-2 hover:text-green-600"
+              aria-expanded={servicesOpen}
+              aria-controls="mobile-services"
+            >
+              Services
+              <IoIosArrowDown
+                className={`text-sm transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+              />
+            </button>
 
-    {servicesOpen && (
-      <div id="mobile-services" className="mt-1 -mx-4 border-t">
-        <div className="px-4 py-3">
-          <NavLink
-            to="/service"
-            className="text-green-700 font-medium block"
-            onClick={closeAll}
-          >
-            View all services →
-          </NavLink>
-        </div>
-        <div className="px-2">
-          <ServicePopup />
-        </div>
-      </div>
-    )}
+            {servicesOpen && (
+              <div id="mobile-services" className="mt-1 -mx-4 border-t">
+                <div className="px-4 py-3">
+                  <NavLink
+                    to="/service"
+                    className="text-green-700 font-medium block"
+                    onClick={closeAll}
+                  >
+                    View all services →
+                  </NavLink>
+                </div>
+                <div className="px-2">
+                  <ServicePopup />
+                </div>
+              </div>
+            )}
+          
+            <NavLink to="/testimonial" className={navLinkClass} onClick={closeAll}>
+              Testimonial
+            </NavLink>
 
-    <NavLink to="/testimonial" className={navLinkClass} onClick={closeAll}>
-      Testimonial
-    </NavLink>
+            <NavLink to="/about_us" className={navLinkClass} onClick={closeAll}>
+              About
+            </NavLink>
 
-    <NavLink to="/about_us" className={navLinkClass} onClick={closeAll}>
-      About
-    </NavLink>
+            <NavLink to="/blogs" className={navLinkClass} onClick={closeAll}>
+              Blog
+            </NavLink>
 
-    <NavLink to="/blogs" className={navLinkClass} onClick={closeAll}>
-      Blog
-    </NavLink>
-
-    <NavLink to="/contactus" className={navLinkClass} onClick={closeAll}>
-      Contact
-    </NavLink>
-  </div>
-)}
+            <NavLink to="/contactus" className={navLinkClass} onClick={closeAll}>
+              Contact
+            </NavLink>
+          </div>
+        )}
 
       </div>
     </header>

@@ -10,8 +10,6 @@ const CaseStudyPage = () => {
     <HeroSectionOne/>
     <CaseStudySection/>
     <OurClients />
-    <CTASection />
-    
     </>
     
 

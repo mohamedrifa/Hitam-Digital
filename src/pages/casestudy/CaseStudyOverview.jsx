@@ -5,7 +5,6 @@ import { CASE_STUDIES } from '../../utils/home';
 import HeroSectionCaseStudy from '../../components/case_study/HeroSectionCaseStudy';
 import { useParams } from 'react-router-dom';
 import OurClients from '../../components/home/OurClients';
-import CTASection from '../../components/home/CTASection';
 
 const CaseStudyOverview = () => {
 
@@ -17,10 +16,7 @@ const { slug } = useParams();
     <>
         <HeroSectionCaseStudy cs={cs}/>
         <CaseStudyDetail cs={cs}/>
-          <OurClients/>
-          <CTASection/>
-
-    
+        <OurClients/>
     </>
   )
 }
