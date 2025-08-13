@@ -1,15 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { FiPhoneCall, FiMail } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import ServicePopup from "./Servicepopup";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const wrapRef = useRef(null);
+  const location = useLocation();
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleMenu = () => setMenuOpen((v) => !v);
   const toggleServices = () => setServicesOpen((s) => !s);
   const closeAll = () => {
     setServicesOpen(false);
@@ -17,9 +18,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const onDown = (e) => {
-      if (e.key === "Escape") closeAll();
-    };
+    const onDown = (e) => e.key === "Escape" && closeAll();
     const onClick = (e) => {
       if (!wrapRef.current) return;
       if (!wrapRef.current.contains(e.target)) closeAll();
@@ -32,12 +31,20 @@ const Navbar = () => {
     };
   }, []);
 
+  // Close menus when route changes
+  useEffect(() => {
+    closeAll();
+  }, [location.pathname]);
+
+  const navLinkClass = ({ isActive }) =>
+    `hover:text-green-600 ${isActive ? "text-green-700" : "text-gray-800"}`;
+
   return (
     <header className="w-full bg-white sticky top-0 z-50 shadow-sm">
       <div ref={wrapRef} className="relative">
         {/* Desktop */}
         <div className="max-w-7xl mx-auto items-center justify-between hidden md:flex py-4 px-6">
-          <Link to="/">
+          <Link to="/" className="shrink-0">
             <img
               src="https://ik.imagekit.io/iufkpclvp/HItam%20Newgen/Digital%20Copy1%20(1).png?updatedAt=1753858388322"
               alt="Hitam Digital"
@@ -45,38 +52,54 @@ const Navbar = () => {
             />
           </Link>
 
-          <nav className="flex items-center space-x-6 text-sm font-medium text-gray-800">
-            <Link to="/" className="hover:text-green-600">Home</Link>
+          <nav className="flex items-center space-x-6 text-sm font-medium">
+            <NavLink to="/" end className={navLinkClass}>
+              Home
+            </NavLink>
 
-            <button
-              onClick={toggleServices}
-              className="hover:text-green-600 flex items-center gap-1"
-            >
-              Services
-              <IoIosArrowDown
-                className={`text-sm mt-[1px] transition-transform ${
-                  servicesOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
+            {/* Services: dropdown toggle + page link */}
+            <div className="relative">
+              <button
+                onClick={toggleServices}
+                className="hover:text-green-600 flex items-center gap-1 text-gray-800"
+                aria-expanded={servicesOpen}
+                aria-haspopup="menu"
+              >
+                Services
+                <IoIosArrowDown
+                  className={`text-sm mt-[1px] transition-transform ${
+                    servicesOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
 
-            <Link to="/testimonial" className="hover:text-green-600">
+            <NavLink to="/testimonial" className={navLinkClass}>
               Testimonial
-            </Link>
+            </NavLink>
 
-            <Link to="/about_us" className="hover:text-green-600">About Us</Link>
-            <Link to="/blog" className="hover:text-green-600">Blog</Link>
-            <Link to="/contact" className="hover:text-green-600">Contact</Link>
+            <NavLink to="/about_us" className={navLinkClass}>
+              About us
+            </NavLink>
+
+            <NavLink to="/blogs" className={navLinkClass}>
+              Blog
+            </NavLink>
+
+            <NavLink to="/contactus" className={navLinkClass}>
+              Contact
+            </NavLink>
           </nav>
 
           <div className="flex items-center space-x-5 text-sm text-gray-800">
-            <div className="flex items-center gap-1">
+            <a href="tel:0000000000" className="flex items-center gap-1 hover:text-green-600">
               <FiPhoneCall className="text-gray-600" size={16} />
               <span>000-000-0000</span>
-            </div>
+            </a>
             <a
               href="mailto:info@example.com"
               className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Email us"
             >
               <FiMail size={18} className="text-gray-700" />
             </a>
@@ -85,14 +108,26 @@ const Navbar = () => {
 
         {servicesOpen && (
           <div className="hidden md:block absolute left-0 right-0 top-full bg-white border-t shadow-xl">
-            <ServicePopup />
+            {/* Optional: include a 'View all services' link at top of popup */}
+            <div className="max-w-7xl mx-auto px-6 py-3">
+              <NavLink
+                to="/service"
+                className="inline-block text-sm font-medium text-green-700 hover:underline"
+              >
+                View all services →
+              </NavLink>
+            </div>
+            <ServicePopup
+              // If your ServicePopup renders links, have them call this to close menus:
+              // onNavigate={closeAll}
+            />
           </div>
         )}
 
         {/* Mobile header */}
         <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white rounded-b-xl shadow-sm">
           <div className="flex-1 flex justify-start">
-            <Link to="/">
+            <Link to="/" onClick={closeAll}>
               <img
                 src="https://ik.imagekit.io/iufkpclvp/HItam%20Newgen/HD.png?updatedAt=1753959530388"
                 alt="Hitam Mobile Logo"
@@ -101,15 +136,16 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="flex items-center gap-3">
-            <button className="p-2 rounded-full hover:bg-gray-100">
+            <a className="p-2 rounded-full hover:bg-gray-100" href="tel:0000000000">
               <FiPhoneCall size={20} className="text-black" />
-            </button>
+            </a>
             <a href="mailto:info@example.com" className="p-2 rounded-full hover:bg-gray-100">
               <FiMail size={20} className="text-black" />
             </a>
             <button
               onClick={toggleMenu}
               className="w-8 h-8 border border-black rounded-full flex items-center justify-center hover:bg-gray-100"
+              aria-expanded={menuOpen}
             >
               <span className="text-xl font-bold leading-none">...</span>
             </button>
@@ -118,13 +154,14 @@ const Navbar = () => {
 
         {menuOpen && (
           <div className="md:hidden mt-1 px-4 pb-4 pt-3 space-y-3 text-base font-medium text-gray-800 bg-white shadow rounded-b-xl">
-            <Link to="/" className="block hover:text-green-600" onClick={closeAll}>
+            <NavLink to="/" end className={navLinkClass} onClick={closeAll}>
               Home
-            </Link>
+            </NavLink>
 
             <button
               onClick={toggleServices}
               className="flex items-center justify-between w-full hover:text-green-600"
+              aria-expanded={servicesOpen}
             >
               Services
               <IoIosArrowDown
@@ -134,23 +171,35 @@ const Navbar = () => {
 
             {servicesOpen && (
               <div className="mt-3 -mx-4 border-t">
+                {/* Provide a quick link to /service in mobile too */}
+                <div className="px-4 py-3">
+                  <NavLink
+                    to="/service"
+                    className="text-green-700 font-medium"
+                    onClick={closeAll}
+                  >
+                    View all services →
+                  </NavLink>
+                </div>
                 <ServicePopup />
               </div>
             )}
 
-            <Link to="/testimonial" className="block hover:text-green-600" onClick={closeAll}>
+            <NavLink to="/testimonial" className={navLinkClass} onClick={closeAll}>
               Testimonial
-            </Link>
+            </NavLink>
 
-            <Link to="/about_us" className="block hover:text-green-600" onClick={closeAll}>
+            <NavLink to="/about_us" className={navLinkClass} onClick={closeAll}>
               About
-            </Link>
-            <Link to="/blog" className="block hover:text-green-600" onClick={closeAll}>
+            </NavLink>
+
+            <NavLink to="/blogs" className={navLinkClass} onClick={closeAll}>
               Blog
-            </Link>
-            <Link to="/contact" className="block hover:text-green-600" onClick={closeAll}>
+            </NavLink>
+
+            <NavLink to="/contactus" className={navLinkClass} onClick={closeAll}>
               Contact
-            </Link>
+            </NavLink>
           </div>
         )}
       </div>

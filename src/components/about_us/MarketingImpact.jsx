@@ -21,22 +21,30 @@ const ResultCard = ({
   bg = "bg-amber-100",
   bar = "bg-amber-200",
 }) => (
-  <div className="overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm flex flex-col">
+  <div className="overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm flex flex-col h-full">
+    {/* Image */}
     <div className="aspect-[16/11] w-full overflow-hidden">
       <img src={image} alt={title} className="h-full w-full object-cover" loading="lazy" />
     </div>
 
+    {/* Title & Subtitle */}
     <div className={`${bg} px-3 py-2`}>
-      <p className="text-center text-[12px] font-semibold leading-tight">{title}</p>
-      <p className="mt-0.5 text-center text-[11px] text-neutral-700">{subtitle}</p>
+      <p className="text-[12px] font-semibold leading-tight text-justify">{title}</p>
+      <p className="mt-0.5 text-[11px] text-neutral-700 text-justify">{subtitle}</p>
     </div>
 
     <div className={`${bar} h-px w-full`} />
 
+    {/* Footer (flex-grow keeps cards equal height) */}
     {footer ? (
-      <div className="px-3 py-2 text-center text-[12px] text-neutral-800">{footer}</div>
-    ) : null}
+      <div className="px-3 py-2 text-[12px] text-neutral-800 text-justify flex-grow">
+        {footer}
+      </div>
+    ) : (
+      <div className="flex-grow" />
+    )}
 
+    {/* Stats */}
     <div className="grid grid-cols-2 gap-3 px-3 pb-4 pt-2">
       {stats.map((s, i) => (
         <Stat key={i} value={s.value} label={s.label} />
@@ -94,7 +102,7 @@ export default function MarketingImpact() {
           {/* left text */}
           <div>
             <Reveal as="h2">
-              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900">
+              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900 text-justify">
                 How Our Digital Marketing & Development Solutions Drive Business Growth
               </h2>
             </Reveal>
@@ -108,7 +116,7 @@ export default function MarketingImpact() {
             </Reveal>
 
             <Reveal as="div" delay={160}>
-              <div className="prose prose-neutral mt-4 max-w-none text-[13px] leading-6">
+              <div className="prose prose-neutral mt-4 max-w-none text-[13px] leading-6 text-justify">
                 <p>
                   At <span className="font-semibold text-emerald-700">Hitam Digital</span>, we help businesses of all sizes build a strong and lasting digital presence.
                   From startups to enterprises, our strategies connect you with the right audience, strengthen brand trust, and drive measurable results.
@@ -150,7 +158,7 @@ export default function MarketingImpact() {
         </div>
 
         {/* results cards */}
-        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 items-stretch">
           {cards.map((c, idx) => (
             <Reveal key={c.title} delay={200 + idx * 120}>
               <ResultCard {...c} />

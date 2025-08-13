@@ -1,46 +1,31 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-const float = {
-  animate: {
-    y: [0, -8, 0],
-    transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-  },
-};
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
     <section
       className="relative w-full bg-white
-                 py-8 sm:py-12 md:py-16  /* mobile reduced */
-                 px-3 sm:px-5 md:px-12 xl:px-16 /* mobile reduced */
+                 pt-24 sm:pt-28 md:pt-32  
+                 pb-8 sm:pb-12 md:pb-16
+                 px-3 sm:px-5 md:px-12 xl:px-16
                  overflow-hidden"
     >
       {/* Left Floral Background */}
       <img
         src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/HeroBg-1.png?updatedAt=1754558014536"
         alt="Floral"
-        className="absolute -left-24 sm:-left-40 top-[120px]
-                   w-[260px] sm:w-[560px] lg:w-[620px] /* smaller on mobile */
-                   object-contain z-0 pointer-events-none"
+        className="absolute -left-24 sm:-left-40 top-[140px]
+                   w-[260px] sm:w-[560px] lg:w-[620px]
+                   object-contain z-0 pointer-events-none select-none"
       />
 
       {/* Wrapper */}
       <div className="relative z-10 max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-6 lg:gap-3 xl:gap-2">
         {/* LEFT COLUMN */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          variants={fadeUp}
+        <div
           className="w-full lg:w-[54%]
-                     space-y-3 sm:space-y-4 lg:space-y-4 /* tighter on mobile */
+                     space-y-3 sm:space-y-4 lg:space-y-4
                      lg:pr-2 lg:ml-16 text-center lg:text-left"
         >
           <div>
@@ -59,17 +44,16 @@ const HeroSection = () => {
             business outcomes — across industries, platforms, and formats.
           </p>
 
-          <div className="flex justify-center lg:justify-start">
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-green-600 hover:bg-green-700 text-white
-                         px-4 py-2 sm:px-6 sm:py-3 /* smaller on mobile */
-                         rounded-full flex items-center gap-2 w-fit shadow text-sm sm:text-base"
-            >
-              Schedule Call <ArrowRight size={18} />
-            </motion.button>
-          </div>
+         <div className="flex justify-center lg:justify-start">
+          <Link
+            to="/contactus"
+            className="bg-green-600 hover:bg-green-700 text-white
+                      px-4 py-2 sm:px-6 sm:py-3
+                      rounded-full flex items-center gap-2 w-fit shadow text-sm sm:text-base"
+          >
+            Schedule Call <ArrowRight size={18} />
+          </Link>
+        </div>
 
           {/* Logos row */}
           <div className="pt-5 sm:pt-8 lg:pt-24">
@@ -84,56 +68,42 @@ const HeroSection = () => {
               <img src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/Company%20logo%20(2).png?updatedAt=1754566332434" className="h-5 sm:h-8" alt="Maze" />
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* RIGHT COLUMN */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          variants={fadeUp}
+        <div
           className="w-full lg:w-[46%] relative flex flex-col items-center lg:items-end
-                     gap-3 sm:gap-4 lg:gap-4 /* tighter on mobile */
+                     gap-3 sm:gap-4 lg:gap-4
                      lg:-ml-4 mt-4 sm:mt-6 lg:mt-0"
         >
           {/* Main Row */}
-          <div className="flex gap-2 relative items-end scale-[0.85] sm:scale-100 /* smaller on mobile */">
-            <div className="w-[140px] h-[140px] sm:w-[240px] sm:h-[240px] bg-yellow-100 rounded-tl-full shadow-inner z-0" />
+          <div className="flex gap-2 relative items-end scale-[0.90] sm:scale-100">
+            <div className="w-[180px] h-[170px] sm:w-[240px] sm:h-[240px] bg-yellow-100 rounded-tl-full shadow-inner z-0" />
 
-            <motion.div
-              className="relative z-10 -ml-[110px] sm:-ml-[220px] -mt-4 sm:-mt-8"
-              animate={float.animate}
-            >
+            <div className="relative z-10 -ml-[110px] sm:-ml-[200px]  sm:-mt-10">
               <img
                 src="https://ik.imagekit.io/iufkpclvp/Hitam%20Digital/HeroBg-2.png?updatedAt=1754558055909"
                 alt="Person"
-                className="w-[140px] sm:w-[230px] h-auto object-contain"
+                className="w-[160px] sm:w-[230px] h-36 sm:h-[300px]  sm:-mt-14 -ml-6     object-contain select-none"
+                draggable={false}
               />
-            </motion.div>
+            </div>
 
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="w-[180px] sm:w-[260px] h-[180px] sm:h-[240px] bg-yellow-100 rounded-2xl shadow ring-1 ring-black/5 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-4 sm:py-5 z-10"
-            >
+            <div className="w-[180px] sm:w-[260px] h-[170px] sm:h-[240px] bg-yellow-100 rounded-2xl shadow ring-1 ring-black/5 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-4 sm:py-5 z-10">
               <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 leading-none">230+</h2>
               <p className="text-[11px] sm:text-[13px] text-gray-600 mt-2 leading-snug">
                 some big companies that we work with, and trust us very much
               </p>
               <div className="w-full h-2 bg-green-700/90 rounded-full mt-3 relative overflow-hidden">
-                <motion.div
-                  initial={{ width: "0%" }}
-                  whileInView={{ width: "58%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 h-1 bg-green-200 rounded-full"
-                />
+                {/* static fill to remove animation */}
+                <div className="absolute left-2 top-1/2 -translate-y-1/2 h-1 bg-green-200 rounded-full" style={{ width: "58%" }} />
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Chart Box */}
-          <motion.div
-            className="w-full max-w-[460px] sm:max-w-[560px] /* slightly smaller on mobile */
+          <div
+            className="w-full max-w-[460px] sm:max-w-[560px]
                        rounded-2xl px-5 sm:px-8 py-4 sm:py-7 shadow ring-1 ring-black/5 z-10"
             style={{ background: "linear-gradient(90deg, #FAF3D1 0%, #EAE0A1 100%)" }}
           >
@@ -150,14 +120,14 @@ const HeroSection = () => {
               </p>
 
               <div className="flex items-end gap-1 sm:gap-2 h-16 sm:h-20">
-                <motion.div initial={{ height: 0 }} whileInView={{ height: "2rem" }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="w-[12px] sm:w-[18px] bg-green-300 rounded-sm" />
-                <motion.div initial={{ height: 0 }} whileInView={{ height: "3rem" }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.05 }} className="w-[12px] sm:w-[18px] bg-green-400 rounded-sm" />
-                <motion.div initial={{ height: 0 }} whileInView={{ height: "3.75rem" }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }} className="w-[12px] sm:w-[18px] bg-green-500 rounded-sm" />
-                <motion.div initial={{ height: 0 }} whileInView={{ height: "4.5rem" }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.15 }} className="w-[12px] sm:w-[18px] bg-green-600 rounded-sm" />
+                <div className="w-[12px] sm:w-[18px] h-8 bg-green-300 rounded-sm" />
+                <div className="w-[12px] sm:w-[18px] h-12 bg-green-400 rounded-sm" />
+                <div className="w-[12px] sm:w-[18px] h-[3.75rem] bg-green-500 rounded-sm" />
+                <div className="w-[12px] sm:w-[18px] h-[4.5rem] bg-green-600 rounded-sm" />
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
