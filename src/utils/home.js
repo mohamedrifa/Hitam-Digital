@@ -1,7 +1,7 @@
 export const TESTIMONIALS = [{
-        quote: "They thoroughly analyze our industry and target audience, allowing them to develop customized campaigns that effectively reach and engage our customers. Their creative ideas and cutting-edge techniques have helped us stay ahead of the competition.",
-        name: "Michael Kaizer",
-        role: "CEO of Basecamp Corp",
+        quote: "“Hitam Digital transformed our online presence with a clean, modern website that perfectly reflects our brand. Their attention to detail, timely delivery, and deep understanding of our vision made the entire process seamless. Since launch, we’ve seen a remarkable increase in customer engagement and positive feedback — a true game-changer for our business.”",
+        name: "Balaji ",
+        role: "Founder, Balaji Traders",
         avatar: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=256&auto=format&fit=crop", // replace with your image
     },
     {

@@ -33,11 +33,11 @@ const OurClients = () => {
           viewport={{ once: true, amount: 0.4 }}
         >
           <h1 className="text-2xl md:text-4xl font-semibold tracking-tight text-gray-900">
-            What Our Clients Are Saying
+           What Our Clients Say About Our Digital Impact 
           </h1>
           <p className="mt-3 text-sm md:text-base text-gray-600">
-            As a leading digital services provider, we share real client feedback and helpful insights
-            to guide your decisions.
+            "We don’t just create campaigns — we create lasting impact." Hitam Digital helps businesses <br/>
+            grow with tailored SEO, PPC, SMO, and web solutions that deliver clear, trackable results. 
           </p>
         </motion.div>
 
@@ -50,6 +50,17 @@ const OurClients = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <TestimonialSlider />
+        </motion.div>
+        <motion.div
+          className="text-center max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
+          <p className="text-sm md:text-base text-gray-600">
+            Join 230+ clients who trust Hitam digital to power their growth. The results we deliver are impactful — but it’s the success stories of our clients that speak the loudest. 
+          </p>
         </motion.div>
       </div>
     </section>
