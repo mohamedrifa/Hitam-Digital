@@ -16,12 +16,10 @@ export default function CTASection() {
           {/* Text */}
           <div className="flex-1">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Ready to work with us?
+              Ready to grow your business with us?
             </h2>
             <p className="mt-2 text-sm md:text-base text-gray-700 max-w-2xl">
-              If you're looking for the best IT and Non-IT solutions that deliver real
-              results — not just clicks and impressions — you're in the right place.
-              Contact us to work with a results-driven digital marketing agency.
+             Partner with Hitam Digital — a full-service digital marketing and development agency trusted for delivering real growth through SEO, SMO, PPC, AEO, and tailored web/app solutions. Whether you're a startup or an enterprise, we help you drive traffic, leads, and lasting results.
             </p>
           </div>
 
@@ -32,10 +30,10 @@ export default function CTASection() {
             whileTap={{ scale: 0.96 }}
           >
             <a
-              href="/contact"
+              href="/contactus"
               className="inline-flex items-center gap-2 rounded-full bg-green-700 px-5 py-2 text-white text-sm font-medium hover:bg-green-800 transition"
             >
-              Get Started
+              Let's Get Started
               <ArrowRight size={16} />
             </a>
           </motion.div>

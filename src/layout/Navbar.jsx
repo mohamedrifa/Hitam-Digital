@@ -110,14 +110,14 @@ const Navbar = () => {
         {servicesOpen && (
           <div className="hidden md:block absolute left-0 right-0 top-full bg-white border-t shadow-xl">
             {/* Optional: include a 'View all services' link at top of popup */}
-            <div className="max-w-7xl mx-auto px-6 py-3">
+            {/* <div className="max-w-7xl mx-auto px-6 py-3">
               <NavLink
                 to="/service"
                 className="inline-block text-sm font-medium text-green-700 hover:underline"
               >
                 View all services →
               </NavLink>
-            </div>
+            </div> */}
             <ServicePopup
               // If your ServicePopup renders links, have them call this to close menus:
               // onNavigate={closeAll}

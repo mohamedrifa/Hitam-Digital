@@ -263,7 +263,7 @@ const ContactUs = () => {
             </div>
 
             {/* CTA */}
-            <div className="mt-6">
+          <div className="mt-6">
               <button
                 type="submit"
                 disabled={submitted}
@@ -274,16 +274,24 @@ const ContactUs = () => {
 
               <div className="text-center mt-6">
                 <p className="text-[#4A4A4A]">
-                  In a hurry? Give us a call now at{" "}
-                  <a href="tel:000000000" className="font-semibold underline decoration-2 underline-offset-4 text-[#5A8F2D]">
-                    000-000-000
+                  In a hurry? Call us now at{" "}
+                  <a
+                    href="tel:+918925539937"
+                    aria-label="Call Hitam Digital at plus nine one eight nine two five five three nine nine three seven"
+                    className="font-semibold underline decoration-2 underline-offset-4 text-[#5A8F2D]"
+                  >
+                    +91&nbsp;89255&nbsp;39937
                   </a>
                 </p>
+                <p className="mt-2 text-xs text-[#6B6B6B]">
+                  Average response time: under 24 hours.
+                </p>
                 <p className="mt-3 text-xs text-[#6B6B6B]">
-                  By submitting your phone number, you agree to receiving texts from Thrive Ideas.
+                  By submitting this form, you agree to receive communications from <span className="font-medium">Hitam Digital</span> via phone, email, or SMS. No spam. Opt out anytime.
                 </p>
               </div>
             </div>
+
           </form>
         </div>
       </div>
