@@ -75,7 +75,7 @@ export default function WhyDigitalMarketing() {
             </Reveal>
 
             {/* Bullet points */}
-            <div className="mt-10 grid gap-2 sm:grid-cols-2 -ml-[80%]">
+            <div className="mt-10 grid gap-2 sm:grid-cols-2 ml-0 lg:-ml-[80%]">
               <ul className="space-y-3">
                 {bulletsLeft.map((item, idx) => (
                   <Reveal as="li" key={item} delay={300 + idx * 70}>
@@ -101,14 +101,14 @@ export default function WhyDigitalMarketing() {
 
             {/* Footer note */}
             <Reveal as="p" delay={900}>
-              <p className="mt-8 text-sm text-neutral-600 -ml-[105%]">
+              <p className="mt-8 text-sm text-neutral-600 ml-0 lg:-ml-[105%]">
                 Our mission is to equip your brand with the right tools, strategies, and platforms for
                 sustainable growth in a fast-changing digital world.
               </p>
             </Reveal>
 
             <Reveal as="p" delay={960}>
-              <p className="mt-3 text-sm text-neutral-600 -ml-[105%]">
+              <p className="mt-3 text-sm text-neutral-600 ml-0 lg:-ml-[105%]">
                 Partner with Hitam Digital today and experience the difference of having a team dedicated
                 to your success — from the first click to long-term customer loyalty.
               </p>

@@ -18,7 +18,6 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
-  // Close on click outside / Esc
   useEffect(() => {
     const onDown = (e) => e.key === "Escape" && closeAll();
     const onClick = (e) => {
@@ -108,7 +107,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Desktop Services Dropdown */}
         {servicesOpen && (
           <div className="hidden md:block absolute left-0 right-0 top-full bg-white border-t shadow-xl">
             {/* Optional: include a 'View all services' link at top of popup */}
@@ -155,8 +153,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile menu & Services */}
-        {/* Mobile menu & Services */}
         {menuOpen && (
           <div className="md:hidden mt-1 px-4 pb-4 pt-3 flex flex-col gap-3 text-base font-medium text-gray-800 bg-white shadow rounded-b-xl">
             <NavLink to="/" end className={navLinkClass} onClick={closeAll}>

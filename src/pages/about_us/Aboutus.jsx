@@ -15,7 +15,7 @@ const Aboutus = () => {
     <MarketingImpact />
     <WhyDigitalMarketing />
     <HitamSection />
-    <CTASection />
+    
     </>
   )
 }
