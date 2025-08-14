@@ -28,10 +28,6 @@ const CATEGORIES = [
     items: ["Brand Identity", "UI/UX Design", "Graphic & Motion"],
   },
   {
-    title: "Project & Business Consulting",
-    items: ["IT Roadmap", "Cloud Consulting", "Process Optimization"],
-  },
-  {
     title: "Digital Marketing",
     items: ["SEO/Content", "Paid Ads", "Social & AEO"],
   },

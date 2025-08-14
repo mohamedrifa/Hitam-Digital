@@ -49,7 +49,7 @@ const Navbar = () => {
             <img
               src={Logo}
               alt="Hitam Digital"
-              className="h-10 w-auto shadow-2xl hidden md:block"
+              className="h-10 w-auto hidden md:block"
             />
           </Link>
 
@@ -95,7 +95,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-5 text-sm text-gray-800">
             <a href="tel:0000000000" className="flex items-center gap-1 hover:text-green-600">
               <FiPhoneCall className="text-gray-600" size={16} />
-              <span>000-000-0000</span>
+              <span>+91 89255-39937</span>
             </a>
             <a
               href="/contactus"
