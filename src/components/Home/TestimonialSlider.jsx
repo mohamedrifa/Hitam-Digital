@@ -1,4 +1,3 @@
-// TestimonialSlider.jsx
 import React, { useState } from "react";
 import { TESTIMONIALS } from "../../utils/home";
 
@@ -27,7 +26,7 @@ export default function TestimonialSlider() {
   return (
     <section className="relative w-full max-w-6xl mx-auto py-12 md:py-20 px-4 md:px-6 ">
       {/* Quote */}
-      <p className="text-lg md:text-2xl leading-8 md:leading-[2.1rem] text-black max-w-full ">
+      <p className="text-lg md:text-2xl leading-8 md:leading-[2.1rem] text-black text-justify max-w-full h-[18rem] md:h-26">
         <span className="text-3xl md:text-4xl mr-2">“</span>
         {t.quote}
         <span className="text-3xl md:text-4xl ml-1">”</span>

@@ -4,7 +4,7 @@ import TestimonialSlider from "./TestimonialSlider";
 
 const OurClients = () => {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden h-[40rem] md:h-[30rem]">
       {/* Soft radial highlight */}
       <div className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(900px_500px_at_85%_10%,#EAF7EE_0%,transparent_60%)]" />
 
