@@ -6,57 +6,51 @@ const testimonials = [
   {
     avatar:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=256&auto=format&fit=crop",
-    name: "Marci Wiersma",
-    role: "Broker – Abbot Realty Real Estate",
-    badge: "“They do everything they say… no BS”",
+    name: "We Chai – Modern Tea Chain",
+    badge: "“They deliver results beyond expectations!”",
     quote:
-      "Hitam is much-needed blessing and exceeded our expectations in every way. They are honest, straightforward, they take care of ALL your needs quickly, they are reliable, you can count on them and most of all, they do everything they say they will do. No BS.",
+      "“With over 950+ outlets, our brand needed a digital partner who could manage scale and consistency. Hitam Digital’s SEO, social media, and design expertise helped us improve engagement, streamline brand presence, and boost our online reach. Their team is quick, reliable, and truly understands how to amplify a brand’s voice.”",
   },
   {
     avatar:
       "https://ik.imagekit.io/iufkpclvp/HItam%20Newgen/girls.jpg?updatedAt=1752840496400",
-    name: "Whitney Wells Lewis",
-    role: "Practice Manager – PARC Urology",
-    badge: "“These guys are incredible!”",
+    name: "Ramani Ventures Builders and Developers",
+    badge: "“A trusted partner for our online presence”",
     quote:
-      "These guys are incredible. They’ve helped us to grow our business and have the biggest problem we seem to come across is having too much business – which is the ideal problem to have. We’re right where we wanted to be and Hitam made that possible. Thanks guys!",
+      "“As a leading construction company, our online presence needed to reflect our reputation. Hitam Digital designed and optimized our responsive website, implemented SEO strategies, and improved our local search visibility. We’ve seen a noticeable increase in inquiries and client trust since partnering with them.”",
   },
   {
     avatar:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=256&auto=format&fit=crop",
-    name: "Chad Montgomery",
-    role: "CEO – Accurate Lock and Line",
-    badge: "“Unrivaled customer support”",
+    name: "DSR Sarees – Handcrafted Sarees Brand",
+    badge: "“Creative, professional, and impactful”",
     quote:
-      "Working with Hitam has been the most pleasant experience! Their dedication and passion for what they do are exemplified by their unrivaled customer support and attentiveness to the specific needs of our business. We look forward to a long-lasting and prosperous relationship!",
+      "“Our eCommerce journey accelerated with Hitam Digital’s help. From custom web design to targeted digital marketing campaigns, they ensured our products reached the right audience. We’ve seen a boost in sales and stronger brand engagement on social media.”",
   },
   // row 2
   {
     avatar:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=256&auto=format&fit=crop",
-    name: "Marci Wiersma",
-    role: "Broker – Abbot Realty Real Estate",
-    badge: "“They do everything they say… no BS”",
+      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fHww",
+    name: "Luxe Strap – Premium Watch Accessories",
+    badge: "“Boosted sales and brand reach”",
     quote:
-      "Hitam is much-needed blessing and exceeded our expectations in every way. They are honest, straightforward, they take care of ALL your needs quickly, they are reliable, you can count on them and most of all, they do everything they say they will do. No BS.",
+      "“Hitam Digital revamped our online store and implemented high-ROI paid ad campaigns. Our conversion rates improved significantly, and their team continuously monitors and optimizes campaigns to ensure consistent results.”",
   },
   {
     avatar:
-      "https://ik.imagekit.io/iufkpclvp/HItam%20Newgen/girls.jpg?updatedAt=1752840496400",
-    name: "Whitney Wells Lewis",
-    role: "Practice Manager – PARC Urology",
-    badge: "“These guys are incredible!”",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE6-KsNGUoKgyIAATW1CNPeVSHhZzS_FN0Zg&s",
+    name: "Michm – Project Platform",
+    badge: "“Smart solutions for a modern business”",
     quote:
-      "These guys are incredible. They’ve helped us to grow our business and have the biggest problem we seem to come across is having too much business – which is the ideal problem to have. We’re right where we wanted to be and Hitam made that possible. Thanks guys!",
+      "“From initial concept to launch, Hitam Digital provided full-stack development and seamless UX design for our platform. Their attention to detail and ability to turn ideas into functional solutions made the process smooth and successful.”",
   },
   {
     avatar:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=256&auto=format&fit=crop",
-    name: "Chad Montgomery",
-    role: "CEO – Accurate Lock and Line",
-    badge: "“Unrivaled customer support”",
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fHww",
+    name: "Green Architects",
+    badge: "“Reliable, efficient, and innovative”",
     quote:
-      "Working with Hitam has been the most pleasant experience! Their dedication and passion for what they do are exemplified by their unrivaled customer support and attentiveness to the specific needs of our business. We look forward to a long-lasting and prosperous relationship!",
+      "“Hitam Digital designed our modern, responsive website and implemented local SEO strategies that brought in more project inquiries. Their combination of technical skills and creative thinking sets them apart from other agencies.”",
   },
 ];
 
@@ -95,7 +89,7 @@ const TestimonialsGrid = () => {
           className="text-center"
         >
           <h2 className="text-2xl sm:text-3xl md:text-[32px] font-semibold leading-tight">
-            Looking for Quality, Accuracy and Consistency?
+            Client Testimonials – Hear From Our Valued Partners
           </h2>
           <p className="mt-2 text-[13px] text-[#6f6f6f]">
             We Pay Attention to the Tiniest Details to Provide You With Reliable Solutions
@@ -133,7 +127,6 @@ const TestimonialsGrid = () => {
               <h3 className="mt-3 text-[14px] font-semibold text-[#2b2b2b]">
                 {t.name}
               </h3>
-              <p className="mt-0.5 text-[12px] text-[#7a7a7a]">{t.role}</p>
 
               {/* Yellow badge */}
               <motion.div

@@ -31,7 +31,7 @@ const GrowthResults = () => {
           variants={fadeUp}
           className="text-2xl sm:text-3xl md:text-[34px] font-semibold text-center leading-tight"
         >
-          We are fiercely focused on your growth.
+          Client Success Stories in Digital Marketing & Development
         </motion.h2>
 
         <motion.p
@@ -39,11 +39,7 @@ const GrowthResults = () => {
           custom={1}
           className="mt-4 text-justify md:text-center text-sm md:text-[13.5px] leading-relaxed text-[#6b6b6b]"
         >
-          As your potential digital marketing partner, we offer more than
-          standard online marketing strategies. Rather, we
-          <br className="hidden md:block" />
-          develop and finely tune a digital marketing growth plan bespoke to your
-          company’s needs and goals.
+          Client Success Stories – Digital Marketing & Development Excellence
         </motion.p>
 
 
@@ -52,13 +48,7 @@ const GrowthResults = () => {
           custom={2}
           className="mt-5 text-justify md:text-center text-[12.5px] md:text-[13px] leading-relaxed text-[#6b6b6b]"
         >
-          Hitam Internet Marketing Agency is an industry-leading digital marketing
-          service provider that delivers performance-driven marketing strategies. We
-          have generated
-          <br className="hidden md:block" />
-          <span className="font-medium text-[#3e3e3e]">+2.4M conversions</span> for SEO
-          clients and over <span className="font-medium text-[#3e3e3e]">$16.4 million</span>{" "}
-          in revenue for eCommerce businesses (as of 2021).
+          At Hitam Digital, we don’t just deliver services — we deliver measurable results that transform businesses. Our expertise spans across high-impact digital marketing and cutting-edge development solutions, helping brands grow, scale, and lead their industries.
         </motion.p>
 
         <motion.p
@@ -66,8 +56,7 @@ const GrowthResults = () => {
           custom={3}
           className="mt-2 text-justify md:text-center text-[12.5px] md:text-[13px] leading-relaxed text-[#6b6b6b]"
         >
-          From startups to enterprises, we are the marketing agency businesses trust to
-          take care of their digital presence.
+          From SEO and PPC campaigns that drive qualified traffic, to custom websites and applications that convert visitors into loyal customers, our work is powered by data, creativity, and innovation.
         </motion.p>
       </motion.div>
 
@@ -104,7 +93,7 @@ const GrowthResults = () => {
               className="bg-[#FFD72F] px-4 py-3"
             >
               <p className="text-sm md:text-[14px] font-semibold text-[#2b2b2b] text-center">
-                “The results speak for themselves”
+                “Why Businesses Choose Hitam Digital”
               </p>
             </motion.div>
 
@@ -119,7 +108,7 @@ const GrowthResults = () => {
                   className="text-center"
                 >
                   <div className="text-[28px] sm:text-[32px] font-extrabold text-[#00A83A]">
-                    +664%
+                    +250%
                   </div>
                   <div className="mt-1 text-[11.5px] uppercase tracking-wide text-[#6b6b6b]">
                     Organic Traffic
@@ -134,7 +123,7 @@ const GrowthResults = () => {
                   className="text-center"
                 >
                   <div className="text-[28px] sm:text-[32px] font-extrabold text-[#00A83A]">
-                    +360%
+                    +200%
                   </div>
                   <div className="mt-1 text-[11.5px] uppercase tracking-wide text-[#6b6b6b]">
                     Online Leads
@@ -143,8 +132,9 @@ const GrowthResults = () => {
               </div>
 
               <p className="mt-5 text-[12.5px] leading-relaxed text-[#5a5a5a]">
-                Our digital marketing company used SEO &amp; PPC to increase the overall
-                traffic to the new Farah website by 664%…
+                •	Proven Digital Marketing Success – Delivered up to +250% organic traffic growth and +200% increase in online leads through targeted SEO, PPC, and social media campaigns.<br/>
+                •	High-Impact Development – Our WordPress, eCommerce, and custom-built solutions have achieved up to +200% higher conversion rates across industries.<br/>
+                •	Complete Growth Solutions – We blend strategy, creative design, and cutting-edge technology to produce sustainable business results.
               </p>
             </div>
           </motion.article>
@@ -174,7 +164,7 @@ const GrowthResults = () => {
               className="bg-[#FFD72F] px-4 py-3"
             >
               <p className="text-sm md:text-[14px] font-semibold text-[#2b2b2b] text-center">
-                “Hitam goes above and beyond”
+                “Our Impact in Numbers”
               </p>
             </motion.div>
 
@@ -188,7 +178,7 @@ const GrowthResults = () => {
                   className="text-center"
                 >
                   <div className="text-[28px] sm:text-[32px] font-extrabold text-[#00A83A]">
-                    +800%
+                    +700%
                   </div>
                   <div className="mt-1 text-[11.5px] uppercase tracking-wide text-[#6b6b6b]">
                     Online Leads
@@ -203,7 +193,7 @@ const GrowthResults = () => {
                   className="text-center"
                 >
                   <div className="text-[28px] sm:text-[32px] font-extrabold text-[#00A83A]">
-                    +640%
+                    +200%
                   </div>
                   <div className="mt-1 text-[11.5px] uppercase tracking-wide text-[#6b6b6b]">
                     Conversion Rate
@@ -212,8 +202,9 @@ const GrowthResults = () => {
               </div>
 
               <p className="mt-5 text-[12.5px] leading-relaxed text-[#5a5a5a]">
-                Hitam digital marketing experts developed a modern WordPress website for
-                Nationwide Construction…
+                •	Over 700 %conversions driven for SEO clients.<br/>
+                •	200% in eCommerce revenue generated for our partners.<br/>
+                •	25 + websites and applications successfully launched for brands worldwide.<br/>
               </p>
             </div>
           </motion.article>
