@@ -36,7 +36,7 @@ const JobListings = () => {
 
   async function fetchJobs() {
     try {
-      const API_URL = import.meta.env.VITE_API_URL;
+      const API_URL = import.meta.env.VITE_API_URL_BLOG;
       const response = await axios.get(`${API_URL}/jobs/all?company=Hitam Digital`);
       setJobData(response.data.data);
     } catch (error) {
@@ -62,7 +62,7 @@ const JobListings = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const API_URL = import.meta.env.VITE_API_URL;
+      const API_URL = import.meta.env.VITE_API_URL_BLOG;
       const response = await axios.post(`${API_URL}/jobs/apply-job`, {
         ...form,
         jobId: selectedJob._id,
