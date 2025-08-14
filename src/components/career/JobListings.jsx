@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { FaRegHandPointRight } from "react-icons/fa6";
-import Jobs from "../../utils/sample_jobs.json";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -30,15 +29,13 @@ const JobListings = () => {
   });
 
   useEffect(() => {
-    // fetchJobs();
-    setJobData(Jobs);
-    setLoading(false);
+    fetchJobs();
   }, []);
 
   async function fetchJobs() {
     try {
       const API_URL = import.meta.env.VITE_API_URL;
-      const response = await axios.get(`${API_URL}/jobs/all`);
+      const response = await axios.get(`${API_URL}/jobs/all?company=Hitam Digital`);
       setJobData(response.data.data);
     } catch (error) {
     } finally {
@@ -101,11 +98,39 @@ education, wellness, and more.
       </p>
 
       {/* Filters */}
-      <div className="flex flex-wrap justify-center items-center gap-3 mb-10">
+      <div className="flex flex-wrap gap-3 mb-5 w-full px-4
+                  justify-start items-start
+                  sm:justify-center sm:items-center">
+        {/* Search Bar (mobile first) */}
+        <div className="relative w-full sm:w-80 md:w-96 order-1 sm:order-none">
+          <label className="sr-only">Search</label>
+          <div
+            className="flex items-center gap-2 h-10 px-3 rounded-[12px]
+                       bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)]
+                       backdrop-blur-[8.9px] border border-[rgba(0,0,0,0.25)]
+                       shadow-sm transition focus-within:ring-2 focus-within:ring-emerald-500"
+          >
+            <span aria-hidden className="text-[#0F2A10]/70">⌕</span>
+            <input
+              type="text"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              placeholder="Search Positions"
+              className="w-full bg-transparent text-sm text-[#0F2A10] placeholder-[#0F2A10]/60 outline-none"
+            />
+          </div>
+        </div>
+
+        {/* Location Select (shows below search on mobile) */}
         <select
           value={selectedLocation}
           onChange={(e) => setSelectedLocation(e.target.value)}
-          className="border-2 border-[#488402]/30 rounded-xl px-4 py-2 text-sm bg-gradient-to-br from-[#BBD673] to-[#D3E2AE]/50 text-black"
+          className="w-full sm:w-auto h-10 px-3 rounded-[12px]
+                     bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)]
+                     backdrop-blur-[8.9px] border border-[rgba(0,0,0,0.25)]
+                     shadow-sm text-sm text-[#0F2A10] outline-none
+                     focus:ring-2 focus:ring-emerald-500 transition
+                     order-2 sm:order-none"
         >
           <option>All locations</option>
           {[...new Set(jobData.map((job) => job.location))].map((loc, index) => (
@@ -114,15 +139,8 @@ education, wellness, and more.
             </option>
           ))}
         </select>
-
-        <input
-          type="text"
-          placeholder="Search Positions"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          className="border-2 border-[#488402]/30 rounded-xl px-4 py-2 text-sm w-64 bg-gradient-to-br from-[#BBD673] to-[#D3E2AE]"
-        />
       </div>
+
 
       {/* Scrollable Job Listings */}
       <motion.div
@@ -145,7 +163,7 @@ education, wellness, and more.
             <motion.div
               key={job._id}
              
-              className="border-2 border-[#488402]/30 bg-gradient-to-r from-[#BBD673]/50 to-[#D3E2AE]/50 rounded-xl px-6 py-4 text-left text-green-900 font-semibold flex justify-between items-center shadow transition-all duration-200 hover:scale-[1.02] hover:shadow-lg"
+              className="rounded-xl bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)] backdrop-blur-[8.9px] px-6 py-4 text-left text-green-900 font-semibold flex justify-between items-center shadow transition-all duration-200 hover:scale-[1.02] hover:shadow-lg"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -178,73 +196,86 @@ education, wellness, and more.
       {visibleCount < filteredJobs.length && (
         <button
           onClick={showMore}
-          className="mt-6 border border-green-500 text-green-700 px-6 py-2 rounded-md text-sm hover:bg-green-100 transition"
+          className="mt-6 border border-yellow-500 text-yellow-700 px-6 py-2 rounded-md text-sm hover:bg-yellow-100 transition"
         >
           View More
         </button>
       )}
 
      {showModal && (
-  <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-50 px-4">
-    <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-xl relative">
-      {/* Close Button */}
-      <button
-        onClick={() => setShowModal(false)}
-        className="absolute top-3 right-4 text-gray-400 hover:text-red-500 text-2xl"
-        aria-label="Close"
-      >
-        &times;
-      </button>
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-50 px-4">
+        <div className="bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.4)_98.62%)]
+                        backdrop-blur-[8.9px] border border-[rgba(0,0,0,0.25)]
+                        rounded-[20px] shadow-2xl p-8 w-full max-w-xl relative">
+    
+          {/* Close Button */}
+          <button
+            onClick={() => setShowModal(false)}
+            className="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-2xl"
+            aria-label="Close"
+          >
+            &times;
+          </button>
 
-      <h2 className="text-2xl font-bold mb-6 text-transparent bg-gradient-to-r from-green-600 to-lime-500 bg-clip-text text-center">
-        Apply for {selectedJob?.jobTitle}
-      </h2>
+          {/* Title */}
+          <h2 className="text-2xl font-bold mb-6 text-transparent 
+                         bg-green-900 bg-clip-text text-center">
+            Apply for {selectedJob?.jobTitle}
+          </h2>
 
-      {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-5">
-        <input
-          type="text"
-          placeholder="Your Full Name"
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email Address"
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
-          required
-        />
-        <input
-          type="tel"
-          placeholder="Phone Number"
-          value={form.phone}
-          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
-          required
-        />
-        <input
-          type="url"
-          placeholder="Resume Link (Google Drive/Dropbox)"
-          value={form.resumeLink}
-          onChange={(e) => setForm({ ...form, resumeLink: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
-          required
-        />
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <input
+              type="text"
+              placeholder="Your Full Name"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              className="w-full px-4 py-3 border border-[rgba(0,0,0,0.25)] rounded-[12px]
+                         bg-white/70 backdrop-blur-[6px] text-sm focus:outline-none
+                         focus:ring-2 focus:ring-yellow-500"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="w-full px-4 py-3 border border-[rgba(0,0,0,0.25)] rounded-[12px]
+                        bg-white/70 backdrop-blur-[6px] text-sm focus:outline-none
+                        focus:ring-2 focus:ring-yellow-500"
+              required
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              value={form.phone}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              className="w-full px-4 py-3 border border-[rgba(0,0,0,0.25)] rounded-[12px]
+                         bg-white/70 backdrop-blur-[6px] text-sm focus:outline-none
+                         focus:ring-2 focus:ring-yellow-500"
+              required
+            />
+            <input
+              type="url"
+              placeholder="Resume Link (Google Drive/Dropbox)"
+              value={form.resumeLink}
+              onChange={(e) => setForm({ ...form, resumeLink: e.target.value })}
+              className="w-full px-4 py-3 border border-[rgba(0,0,0,0.25)] rounded-[12px]
+                         bg-white/70 backdrop-blur-[6px] text-sm focus:outline-none
+                         focus:ring-2 focus:ring-yellow-500"
+              required
+            />
+            <button
+              type="submit"
+              className="w-full inline-flex items-center justify-center-safe bg-[#018002] hover:bg-green-600 text-white text-md font-semibold px-10 py-3 rounded-full transition duration-300"
+            >
+              Submit Application
+            </button>
+          </form>
+        </div>
+      </div>
 
-        <button
-          type="submit"
-          className="w-full py-3 rounded-lg bg-gradient-to-r from-green-600 to-lime-500 text-white font-semibold hover:from-green-700 hover:to-lime-600 transition"
-        >
-          Submit Application
-        </button>
-      </form>
-    </div>
-  </div>
-)}
+    )}
 
     </div>
   );
