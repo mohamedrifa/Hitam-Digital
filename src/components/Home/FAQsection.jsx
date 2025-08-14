@@ -76,13 +76,13 @@ export default function FAQSection() {
 
             <div className="mt-6 flex items-center gap-4">
               <a
-                href="#contact"
+                href="/contactus"
                 className="inline-flex items-center justify-center rounded-full bg-green-700 px-5 py-2.5 text-white text-sm font-medium hover:opacity-90 transition"
               >
                 More Questions
               </a>
               <a
-                href="/contact"
+                href="/contactus"
                 className="text-sm font-medium text-gray-800 underline underline-offset-4"
               >
                 Contact Us

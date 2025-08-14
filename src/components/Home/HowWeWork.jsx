@@ -40,24 +40,27 @@ const HowWeWork = () => {
 
   return (
     <div className="max-w-[1200px] mx-auto px-4 py-10 lg:py-20 mt-5">
-      {/* Mobile: 1 col  |  Desktop: 2 cols (unchanged) */}
+      {/* Mobile: 1 col  |  Desktop: 2 cols */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-start">
         {/* LEFT COLUMN */}
         <div className="flex flex-col items-center lg:items-start h-full">
-          {/* Heading — reduced only on mobile */}
-          <h2 className="text-[26px] sm:text-[30px] md:text-[36px] lg:text-[42px] font-extrabold leading-tight text-[#101828] mb-4 lg:mb-6 text-center lg:text-left w-2xl">
-            Provide the best service without <br />
-            of the box ideas
+          {/* Headline */}
+          <h2 className="text-[26px] sm:text-[30px] md:text-[36px] lg:text-[42px] font-extrabold leading-tight text-[#101828] mb-2 lg:mb-3 text-center lg:text-left">
+            Delivering Exceptional Results with Creative, Data-Driven Solutions
           </h2>
+          
 
-          {/* Stats card — mobile smaller; hover lift */}
+          {/* Stats card */}
           <div className="group w-full max-w-[340px] sm:max-w-[400px] lg:w-[360px] h-[200px] sm:h-[240px] lg:h-[300px] bg-gradient-to-br from-[#F4EDC4] to-[#E4DC91] p-6 shadow-md rounded-2xl flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
             <div>
-              <h3 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-black transition-transform duration-300 group-hover:translate-x-[1px]">
-                920+
+              <h3 className="text-3xl sm:text-3xl lg:text-3xl font-bold text-black transition-transform duration-300 group-hover:translate-x-[1px]">
+                420+
               </h3>
               <p className="text-xs sm:text-sm mt-2 text-[#333]">
-                Project finish with superbly
+                Projects delivered across fashion, education, real estate & retail.
+              </p>
+              <p className="text-[11px] sm:text-xs mt-1 text-[#333]">
+                🟡 Trusted by 500+ clients worldwide.
               </p>
             </div>
 
@@ -77,15 +80,12 @@ const HowWeWork = () => {
 
         {/* RIGHT COLUMN */}
         <div className="flex flex-col justify-between h-full mt-3 lg:mt-1">
-          {/* Paragraph — mobile smaller text; desktop unchanged spacing */}
-          <p className="text-gray-700 text-[12px] sm:text-[13px] leading-6 text-justify lg:text-left ml-0 lg:ml-28">
-            We are a passionate team of digital marketing enthusiasts dedicated to
-            helping businesses succeed in the digital world. With years of experience
-            and a deep understanding of the ever-evolving online landscape, we stay at
-            the forefront of industry trends and technologies.
+          {/* Supporting paragraph */}
+          <p className="text-gray-700 text-[12px] sm:text-[13px] leading-6 text-justify lg:text-left ml-0 lg:ml-1">
+            Our expert team blends strategy with execution—SEO-ready sites, targeted ads, and custom builds—aligned to your goals and ROI. With ongoing optimization and clear reporting, we help you lead your market with confidence.
           </p>
 
-          {/* Video — mobile slightly scaled down; desktop untouched */}
+          {/* Video */}
           <div className="group relative w-full aspect-[16/9] overflow-hidden shadow-md mt-4 rounded-2xl lg:w-[700px] lg:h-[300px] lg:aspect-auto lg:mt-0 lg:-ml-52 transition-all duration-300 sm:scale-100 scale-[0.97] hover:scale-100">
             <video
               ref={vref}
@@ -97,17 +97,17 @@ const HowWeWork = () => {
               className="w-full h-full object-cover"
             />
 
-            {/* Center overlay text with subtle hover spacing */}
+            {/* Overlay title */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <p className="text-white text-xl sm:text-3xl lg:text-3xl font-bold tracking-widest transition-all duration-300 group-hover:tracking-[0.2em]">
                 HOW WE WORK
               </p>
             </div>
 
-            {/* Glow + lift on hover (container) */}
+            {/* Glow ring */}
             <div className="pointer-events-none absolute inset-0 rounded-2xl ring-0 group-hover:ring-2 ring-yellow-300/50 transition-all duration-300" />
 
-            {/* Pause/Resume Button */}
+            {/* Pause/Resume */}
             <button
               onClick={togglePlay}
               aria-label={playing ? "Pause" : "Play"}
@@ -120,7 +120,7 @@ const HowWeWork = () => {
               )}
             </button>
 
-            {/* Mute/Unmute Button */}
+            {/* Mute/Unmute */}
             <button
               onClick={toggleMute}
               aria-label={muted ? "Unmute" : "Mute"}

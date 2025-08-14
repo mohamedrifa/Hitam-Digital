@@ -10,10 +10,10 @@ const HeroSectionOne = () => {
   const [heroContent, setHeroContent] = useState(null);
 
   useEffect(() => {
-    const path = location.pathname.replace("/", "") || "homepage";
+    const path = location.pathname.replace('/', '') || 'homepage';
     const matched = HeroData.find((item) => item.page === path);
     setHeroContent(matched);
-  }, [location]);
+  }, [location.pathname]);
 
   if (!heroContent) {
     return (
@@ -24,7 +24,7 @@ const HeroSectionOne = () => {
     );
   }
 
-  const { title, subtitle,page } = heroContent;
+  const { title, subtitle, page } = heroContent;
 
   return (
     <section className="relative bg-white overflow-hidden space-y-44 pt-24 pb-16">
@@ -47,19 +47,22 @@ const HeroSectionOne = () => {
         </h1>
         <p className="mt-4 text-sm font-medium text-gray-600">{subtitle}</p>
 
-        <div className="mt-8">
-          <button
-            onClick={() => console.log('Schedule call clicked')}
-            className="inline-flex items-center bg-[#018002] hover:bg-green-600 text-white text-sm font-semibold px-6 py-2 rounded-full transition duration-300"
-          >
-            Schedule Call
-            <span className="ml-3 text-lg">→</span>
-          </button>
-        </div>
+        {/* Show Schedule Call button on all pages EXCEPT contactus */}
+        {page !== 'contactus' && (
+          <div className="mt-8">
+            <Link
+              to="/contactus"
+              className="inline-flex items-center bg-[#018002] hover:bg-green-600 text-white text-sm font-semibold px-6 py-2 rounded-full transition duration-300"
+            >
+              Schedule Call
+              <span className="ml-3 text-lg">→</span>
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Breadcrumb Section */}
-      <div className="w-full h-12 bg-gradient-to-br from-[#F7c500]/20 to-[#F7C500] flex items-center justify-center space-x-1 text-gray-700 ">
+      <div className="w-full h-12 bg-gradient-to-br from-[#F7c500]/20 to-[#F7C500] flex items-center justify-center space-x-1 text-gray-700">
         <Link to="/" className="flex items-center space-x-1 text-gray-700 hover:underline">
           <HomeIcon className="w-5 h-5 text-gray-600" />
           <span className="font-medium">Home /</span>

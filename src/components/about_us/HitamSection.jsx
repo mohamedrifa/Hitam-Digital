@@ -34,12 +34,12 @@ const TagIcon = () => (
 
 /* Exact palette (dark header → light body) */
 const PALETTE = {
-  blue:     { dark: "#2C6AA6", light: "#E3F2FD" },
-  teal:     { dark: "#1F7A8C", light: "#E0F7FA" },
+  blue: { dark: "#2C6AA6", light: "#E3F2FD" },
+  teal: { dark: "#1F7A8C", light: "#E0F7FA" },
   deepTeal: { dark: "#0F766E", light: "#E0F2F1" },
-  lime:     { dark: "#65A30D", light: "#F1F8E9" },
-  green:    { dark: "#166534", light: "#E8F5E9" },
-  amber:    { dark: "#D97706", light: "#FFF8E1" },
+  lime: { dark: "#65A30D", light: "#F1F8E9" },
+  green: { dark: "#166534", light: "#E8F5E9" },
+  amber: { dark: "#D97706", light: "#FFF8E1" },
 };
 
 /* Updated content */
@@ -106,18 +106,18 @@ export default function HitamSection() {
           </Reveal>
         </div>
 
-        {/* Cards (equal-height) */}
-        <div className="mt-10 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+        {/* Cards */}
+        <div className="mt-10 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map(({ title, body, color, icon: Icon }, idx) => (
             <Reveal key={title} delay={140 + idx * 120}>
               <article
-                className="rounded-xl shadow-sm overflow-hidden border border-black/5 transform transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-md flex flex-col h-full"
+                className="rounded-xl shadow-sm overflow-hidden border border-black/5 transform transition-transform duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-md flex flex-col h-full min-h-[300px]"
                 style={{
                   background: `linear-gradient(to bottom, ${color.dark} 0%, ${color.dark} 28%, ${color.light} 28%, ${color.light} 100%)`,
                 }}
               >
                 {/* Header */}
-                <div className="flex items-center gap-2.5 px-4 py-3">
+                <div className="flex items-center gap-2.5 px-4 py-10">
                   <span className="inline-flex items-center justify-center rounded-md p-1.5 bg-white/20">
                     <Icon />
                   </span>
@@ -126,8 +126,8 @@ export default function HitamSection() {
 
                 <div className="h-px bg-white/20 mx-4" />
 
-                {/* Body fills remaining height */}
-                <div className="px-4 py-4 flex-grow">
+                {/* Body */}
+                <div className="px-4 pt-6 pb-8 flex-grow flex items-start">
                   <p className="text-[13px] leading-6 text-[#233123]">{body}</p>
                 </div>
               </article>
@@ -139,7 +139,7 @@ export default function HitamSection() {
         <Reveal as="div" delay={140 + FEATURES.length * 120}>
           <div className="mt-8 flex justify-center">
             <a
-              href="#contact"
+              href="/contactus"
               className="rounded-full bg-[#F8BD3C] hover:bg-[#f4ad16] text-[#0f2a10] text-xs sm:text-sm font-semibold px-6 py-3 shadow ring-1 ring-amber-900/10"
             >
               Start Growing with Hitam Digital
@@ -151,14 +151,7 @@ export default function HitamSection() {
   );
 }
 
-/* ---------------------------
- * Reveal (scroll-in animation)
- * - Fades in + slides up when entering viewport
- * - No external libs, just IntersectionObserver
- * Props:
- *   - as: element tag to render (default 'div')
- *   - delay: ms to stagger (default 0)
- * --------------------------*/
+/* Reveal animation */
 function Reveal({ as: Tag = "div", delay = 0, children }) {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
@@ -167,7 +160,6 @@ function Reveal({ as: Tag = "div", delay = 0, children }) {
     const el = ref.current;
     if (!el) return;
 
-    // Respect reduced motion
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) {
       setVisible(true);

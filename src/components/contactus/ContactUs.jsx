@@ -1,5 +1,5 @@
 // src/components/ContactUs.jsx
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import markImage from "../../assets/servicesection/contactus/digital_logo.png";
 import personImage from "../../assets/servicesection/contactus/desk_lady.png";
 import mobilePerson from "../../assets/servicesection/contactus/mobile_lady.png";
@@ -18,45 +18,93 @@ const ContactUs = () => {
     hearAbout: "",
     message: "",
   });
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (key) => (e) => setForm((s) => ({ ...s, [key]: e.target.value }));
+  // country-specific phone rules (pattern strings for HTML pattern attr)
+  const phoneRules = useMemo(
+    () => ({
+      "+91": { min: 10, max: 10, pattern: "^[6-9][0-9]{9}$", placeholder: "10-digit mobile (starts 6–9)" },
+      "+1": { min: 10, max: 10, pattern: "^[0-9]{10}$", placeholder: "10-digit number" },
+      "+44": { min: 10, max: 11, pattern: "^[0-9]{10,11}$", placeholder: "10–11 digits" },
+      default: { min: 7, max: 15, pattern: "^[0-9]{7,15}$", placeholder: "7–15 digits" },
+    }),
+    []
+  );
 
-  const validate = () => {
-    const req = {
-      firstName: "First Name",
-      lastName: "Last Name",
-      company: "Company/Organization",
-      email: "Email Address",
-      phone: "Phone",
-      services: "Services",
-      companySize: "Company Size",
-    };
+  const rule = phoneRules[form.countryCode] || phoneRules.default;
 
-    const missing = Object.entries(req)
-      .filter(([k]) => !String(form[k] || "").trim())
-      .map(([, label]) => label);
+  const setField = (k, v) => setForm((s) => ({ ...s, [k]: v }));
+  const handleChange = (key) => (e) => setField(key, e.target.value);
 
-    // simple email + phone checks
-    const issues = [];
-    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      issues.push("Enter a valid Email Address");
+  // String acceptance for names: allow letters, spaces, ' and -, capitalize first letter
+  const handleNameChange = (key) => (e) => {
+    let cleaned = e.target.value.replace(/[^a-zA-Z\s'-]/g, "");
+    if (cleaned.length > 0) {
+      cleaned = cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
     }
-    if (form.phone && !/^[0-9]{7,15}$/.test(form.phone.replace(/\D/g, ""))) {
-      issues.push("Enter a valid Phone (7–15 digits)");
-    }
-
-    return [...missing, ...issues];
+    setField(key, cleaned);
   };
 
+  // Phone: digits only + enforce India 6–9 + trim to max
+  const handlePhoneChange = (e) => {
+    const onlyDigits = e.target.value.replace(/\D/g, "");
+    let v = onlyDigits;
+    if (form.countryCode === "+91" && v.length > 0 && !/^[6-9]/.test(v)) {
+      v = v.replace(/^[0-5]+/, "");
+    }
+    setField("phone", v.slice(0, rule.max));
+  };
+
+  // When country changes, keep phone but trim to new max and apply India start rule
+  const handleCountryChange = (e) => {
+    const nextCode = e.target.value;
+    const nextRule = phoneRules[nextCode] || phoneRules.default;
+    let digits = (form.phone || "").replace(/\D/g, "");
+    if (nextCode === "+91" && digits.length > 0 && !/^[6-9]/.test(digits)) {
+      digits = digits.replace(/^[0-5]+/, "");
+    }
+    setForm((s) => ({
+      ...s,
+      countryCode: nextCode,
+      phone: digits.slice(0, nextRule.max),
+    }));
+  };
+
+  // Native HTML5 validation (keeps your design unchanged)
   const onSubmit = (e) => {
-    e.preventDefault();
-    const problems = validate();
-    if (problems.length) {
-      alert("Please fix the following:\n\n- " + problems.join("\n- "));
+    const formEl = e.currentTarget;
+    if (!formEl.checkValidity()) {
+      e.preventDefault();
+      formEl.reportValidity();
       return;
     }
-    // Submit your payload here (fetch/axios)
-    alert("Thanks! Your request has been submitted.");
+    e.preventDefault();
+
+    // store in localStorage
+    const payload = { ...form, submittedAt: new Date().toISOString() };
+    try {
+      localStorage.setItem("contact_submission", JSON.stringify(payload));
+    } catch (_) {
+      // ignore storage errors silently
+    }
+
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
+
+    // (optional) clear inputs except countryCode; comment out if you want to keep values
+    setForm((s) => ({
+      firstName: "",
+      lastName: "",
+      company: "",
+      website: "",
+      email: "",
+      countryCode: s.countryCode,
+      phone: "",
+      services: "",
+      companySize: "",
+      hearAbout: "",
+      message: "",
+    }));
   };
 
   return (
@@ -94,7 +142,7 @@ const ContactUs = () => {
 
       {/* Main card */}
       <div className="flex flex-col lg:flex-row bg-[#FFF7E3] rounded-[16px] overflow-hidden py-[40px] lg:py-[25px] mt-[40px]">
-        {/* Desktop left panel (hidden on mobile) */}
+      
         <div className="hidden lg:block lg:w-[342.67px] ml-[21px]">
           <div className="relative rounded-2xl bg-[#6A8238] overflow-hidden h-full min-h-[420px]">
             <div className="absolute inset-0 pointer-events-none">
@@ -122,16 +170,27 @@ const ContactUs = () => {
 
         {/* Right: FORM */}
         <div className="flex-1 px-[24px] lg:px-[40px]">
-          <form onSubmit={onSubmit} noValidate>
+          <form onSubmit={onSubmit}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px]">
-              <Input placeholder="First Name*" value={form.firstName} onChange={handleChange("firstName")} />
-              <Input placeholder="Last Name*" value={form.lastName} onChange={handleChange("lastName")} />
+              <Input
+                placeholder="First Name*"
+                value={form.firstName}
+                onChange={handleNameChange("firstName")}
+                required
+              />
+              <Input
+                placeholder="Last Name*"
+                value={form.lastName}
+                onChange={handleNameChange("lastName")}
+                required
+              />
 
               <Input
                 placeholder="Company/Organization*"
                 className="lg:col-span-1"
                 value={form.company}
                 onChange={handleChange("company")}
+                required
               />
               <Input
                 placeholder="Website"
@@ -140,13 +199,24 @@ const ContactUs = () => {
                 onChange={handleChange("website")}
               />
 
-              <Input placeholder="Email Address*" value={form.email} onChange={handleChange("email")} />
+              <Input
+                placeholder="Email Address*"
+                value={form.email}
+                onChange={handleChange("email")}
+                type="email"
+                inputMode="email"
+                required
+              />
 
               <PhoneInput
                 countryCode={form.countryCode}
                 phone={form.phone}
-                onCountryChange={handleChange("countryCode")}
-                onPhoneChange={handleChange("phone")}
+                onCountryChange={handleCountryChange}
+                onPhoneChange={handlePhoneChange}
+                pattern={rule.pattern}
+                maxLen={rule.max}
+                placeholder={rule.placeholder}
+                required
               />
 
               <Select
@@ -154,6 +224,7 @@ const ContactUs = () => {
                 value={form.services}
                 onChange={handleChange("services")}
                 className="lg:col-span-2"
+                required
                 options={[
                   { value: "digital-marketing", label: "Digital Marketing" },
                   { value: "web-dev", label: "Web Development" },
@@ -167,6 +238,7 @@ const ContactUs = () => {
                 value={form.companySize}
                 onChange={handleChange("companySize")}
                 className="lg:col-span-2"
+                required
                 options={[
                   { value: "1-10", label: "1–10" },
                   { value: "11-50", label: "11–50" },
@@ -191,26 +263,35 @@ const ContactUs = () => {
             </div>
 
             {/* CTA */}
-            <div className="mt-6">
+          <div className="mt-6">
               <button
                 type="submit"
+                disabled={submitted}
                 className="w-full rounded-full bg-[#0B7A00] py-[14px] text-white text-lg font-semibold tracking-wide hover:opacity-95 active:opacity-90 transition"
               >
-                SEND MY FREE PROPOSAL
+                {submitted ? "YOUR PROPOSAL HAS BEEN SENDED" : "SEND MY FREE PROPOSAL"}
               </button>
 
               <div className="text-center mt-6">
                 <p className="text-[#4A4A4A]">
-                  In a hurry? Give us a call now at{" "}
-                  <a href="tel:000000000" className="font-semibold underline decoration-2 underline-offset-4 text-[#5A8F2D]">
-                    000-000-000
+                  In a hurry? Call us now at{" "}
+                  <a
+                    href="tel:+918925539937"
+                    aria-label="Call Hitam Digital at plus nine one eight nine two five five three nine nine three seven"
+                    className="font-semibold underline decoration-2 underline-offset-4 text-[#5A8F2D]"
+                  >
+                    +91&nbsp;89255&nbsp;39937
                   </a>
                 </p>
+                <p className="mt-2 text-xs text-[#6B6B6B]">
+                  Average response time: under 24 hours.
+                </p>
                 <p className="mt-3 text-xs text-[#6B6B6B]">
-                  By submitting your phone number, you agree to receiving texts from Thrive Ideas.
+                  By submitting this form, you agree to receive communications from <span className="font-medium">Hitam Digital</span> via phone, email, or SMS. No spam. Opt out anytime.
                 </p>
               </div>
             </div>
+
           </form>
         </div>
       </div>
@@ -230,12 +311,13 @@ const Textarea = ({ className = "", ...props }) => (
   <textarea rows={4} {...props} className={`${baseField} px-5 py-4 text-[16px] h-[65px] leading-[28px] ${className}`} />
 );
 
-const Select = ({ placeholder, className = "", value, onChange, options = [] }) => (
+const Select = ({ placeholder, className = "", value, onChange, options = [], ...props }) => (
   <div className={`relative ${className}`}>
     <select
       className={`${baseField} h-[55px] px-5 pr-12 appearance-none text-[16px] leading-[28px]`}
       value={value}
       onChange={onChange}
+      {...props}
     >
       <option value="">{placeholder}</option>
       {options.map((opt) => (
@@ -252,25 +334,52 @@ const Select = ({ placeholder, className = "", value, onChange, options = [] }) 
   </div>
 );
 
-const PhoneInput = ({ countryCode, phone, onCountryChange, onPhoneChange }) => (
+const PhoneInput = ({ countryCode, phone, onCountryChange, onPhoneChange, pattern, maxLen, placeholder, required }) => (
   <div className="flex items-stretch gap-0">
-    <div className="w-28">
+    <div className="w-28 relative">
       <select
-        className={`${baseField} h-[55px] rounded-r-none px-4 text-[16px] leading-[28px]`}
+        className={`${baseField} h-[55px] rounded-r-none pl-4 pr-8 text-[16px] leading-[28px] appearance-none`}
+        style={{
+          WebkitAppearance: "none",
+          MozAppearance: "none",
+          appearance: "none", 
+        }}
         value={countryCode}
         onChange={onCountryChange}
+        required
       >
         <option value="+91">+91</option>
         <option value="+1">+1</option>
         <option value="+44">+44</option>
       </select>
+
+      {/* Custom arrow */}
+      <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#555"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </span>
     </div>
+
     <input
       type="tel"
-      placeholder="000-000-000"
+      placeholder={placeholder || "000-000-000"}
       className={`${baseField} h-[55px] rounded-l-none px-5 text-[16px] leading-[28px] w-full`}
       value={phone}
       onChange={onPhoneChange}
+      inputMode="numeric"
+      pattern={pattern}
+      maxLength={maxLen}
+      required={required}
     />
   </div>
 );

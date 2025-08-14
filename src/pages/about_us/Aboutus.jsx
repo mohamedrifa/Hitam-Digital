@@ -4,7 +4,7 @@ import HitamSection from '../../components/about_us/HitamSection'
 import MarketingImpact from '../../components/about_us/MarketingImpact'
 import WhyDigitalMarketing from '../../components/about_us/MarketingSection'
 import HeroSectionOne from '../../components/herosection-one/HeroPageOne'
-import CTASection from '../../components/Home/CTASection'
+
 
 
 const Aboutus = () => {
@@ -15,7 +15,7 @@ const Aboutus = () => {
     <MarketingImpact />
     <WhyDigitalMarketing />
     <HitamSection />
-    <CTASection />
+    
     </>
   )
 }

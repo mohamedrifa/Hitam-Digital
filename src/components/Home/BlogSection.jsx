@@ -1,6 +1,7 @@
-// CompactBlogSection.jsx (with Framer Motion)
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+  
 
 const posts = [
   {
@@ -70,12 +71,12 @@ export default function CompactBlogSection() {
               and convert visitors into customers with proven strategies.
             </p>
           </div>
-          <a
-            href="/blog"
+          <Link
+            to="/blogs"
             className="inline-flex items-center justify-center rounded-full border border-green-600 px-4 py-1.5 text-sm font-medium text-green-700 hover:bg-green-600 hover:text-white transition"
           >
             See more
-          </a>
+          </Link>
         </motion.div>
 
         {/* Blog cards */}
@@ -121,16 +122,6 @@ export default function CompactBlogSection() {
                   {post.excerpt}
                 </p>
 
-                <div className="mt-3 flex justify-end">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.96 }}
-                    className="h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-green-600 hover:text-white transition"
-                    aria-label="Read article"
-                  >
-                    →
-                  </motion.button>
-                </div>
               </div>
             </motion.article>
           ))}

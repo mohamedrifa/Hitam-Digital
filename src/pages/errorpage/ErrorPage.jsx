@@ -1,12 +1,19 @@
 // src/components/ProgressBanner.jsx
-import React from "react";
+import React, {useEffect} from "react";
 import statue from "../../assets/errorpage/statue.png";
 import logo from "../../assets/errorpage/digital_logo.png";
 
-export default function ErrorPage() {
+const ErrorPage = () => {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   return (
     <>
-      <div className="relative w-full h-[760px] md:h-[770px] bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)] backdrop-blur-sm overflow-hidden border border-black/25">
+      <div className="relative w-full h-[800px] md:h-[770px] bg-[linear-gradient(129deg,rgba(247,197,0,0.16)_1.9%,rgba(247,197,0,0.40)_98.62%)] backdrop-blur-sm overflow-hidden border border-black/25">
         {/* Text */}
         <h1 className="absolute z-10 top-40 left-5 right-5 text-2xl font-bold text-black md:text-5xl md:left-[304px] md:right-auto md:top-1/2 md:-translate-y-1/2">
           <span className="block">We’re Currently</span>
@@ -34,3 +41,5 @@ export default function ErrorPage() {
     </>
   );
 }
+
+export default ErrorPage;
