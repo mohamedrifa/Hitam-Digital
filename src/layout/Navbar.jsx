@@ -68,7 +68,7 @@ const Navbar = () => {
               >
                 Services
                 <IoIosArrowDown
-                  className={`text-sm mt-[1px] transition-transform ${
+                  className={`text-sm mt-[1px]  ${
                     servicesOpen ? "rotate-180" : ""
                   }`}
                 />

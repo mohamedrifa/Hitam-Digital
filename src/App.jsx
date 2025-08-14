@@ -16,7 +16,6 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Pages that should show Navbar/CTA/Footer */}
         <Route element={<RouteLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/service" element={<ServicePage />} />
@@ -27,8 +26,8 @@ const App = () => {
           <Route path="/projects/:slug" element={<CaseStudyOverview/>}/>
           <Route path="/testimonial" element={<Testimonial />} />
           <Route path="/about_us" element={<Aboutus />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
-        {/* Catch-all 404 WITHOUT layout */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
