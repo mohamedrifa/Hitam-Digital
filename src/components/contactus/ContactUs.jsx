@@ -142,7 +142,7 @@ const ContactUs = () => {
 
       {/* Main card */}
       <div className="flex flex-col lg:flex-row bg-[#FFF7E3] rounded-[16px] overflow-hidden py-[40px] lg:py-[25px] mt-[40px]">
-        {/* Desktop left panel (hidden on mobile) */}
+      
         <div className="hidden lg:block lg:w-[342.67px] ml-[21px]">
           <div className="relative rounded-2xl bg-[#6A8238] overflow-hidden h-full min-h-[420px]">
             <div className="absolute inset-0 pointer-events-none">
@@ -334,7 +334,7 @@ const PhoneInput = ({ countryCode, phone, onCountryChange, onPhoneChange, patter
         style={{
           WebkitAppearance: "none",
           MozAppearance: "none",
-          appearance: "none", // Ensure cross-browser
+          appearance: "none", 
         }}
         value={countryCode}
         onChange={onCountryChange}
