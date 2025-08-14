@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { FaRegHandPointRight } from "react-icons/fa6";
+import Loader from "../Loader";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -73,10 +74,6 @@ const JobListings = () => {
     }
   };
 
-
- 
-
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
 
   return (
     <div
@@ -157,7 +154,6 @@ education, wellness, and more.
         <style>
           {`#job-scroll-container::-webkit-scrollbar { display: none; }`}
         </style>
-
         {visibleJobs.length > 0 ? (
           visibleJobs.map((job, idx) => (
             <motion.div
@@ -187,9 +183,10 @@ education, wellness, and more.
             </motion.div>
           ))
         ) : (
-          <div className="text-gray-500 font-medium text-sm py-10">
+          loading ? (<Loader size={60} color="#f7c500" accent="#018002" label="Loading Jobs..." speed={1.5} />) :
+          (<div className="text-gray-500 font-medium text-sm py-10">
             No jobs found for your search.
-          </div>
+          </div>)
         )}
       </motion.div>
 
