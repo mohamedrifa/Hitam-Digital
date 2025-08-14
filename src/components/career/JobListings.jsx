@@ -19,6 +19,7 @@ const JobListings = () => {
   const [visibleCount, setVisibleCount] = useState(5);
   const [jobData, setJobData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loading1, setLoading1] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
@@ -73,6 +74,17 @@ const JobListings = () => {
     } catch (error) {
     }
   };
+  if(loading1) {
+    return <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-50 px-4">
+      <Loader
+        size={90}
+        color="transparent" 
+        accent="#018002"      
+        speed={2}            
+        label="Please Wait..."
+      />
+    </div>;
+  }
 
 
   return (
