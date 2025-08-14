@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from "react";
 import HeroSection from "../components/Home/HeroSection";
-import CTASection from "../components/Home/CTASection";
 import HowWeWork from "../components/Home/HowWeWork";
 import PortfolioSection from "../components/Home/PortfolioSection";
 import CompactBlogSection from "../components/Home/BlogSection";
@@ -22,7 +21,7 @@ const HomePage = () => {
         <OurClients />
         <FAQSection/>
         <CompactBlogSection />
-        <CTASection/>
+        
      
       </Suspense>
     </div>

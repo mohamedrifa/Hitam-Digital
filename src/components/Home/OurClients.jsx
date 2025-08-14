@@ -33,7 +33,8 @@ const OurClients = () => {
           viewport={{ once: true, amount: 0.4 }}
         >
           <h1 className="text-2xl md:text-4xl font-semibold tracking-tight text-gray-900">
-            What Our Clients Are Saying
+            What Our Clients Say About Our Digital Impact
+
           </h1>
           <p className="mt-3 text-sm md:text-base text-gray-600">
             As a leading digital services provider, we share real client feedback and helpful insights
