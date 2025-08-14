@@ -16,10 +16,10 @@ export default function CaseStudyDetail({cs}) {
 
   return (
     <section className="bg-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+      <div className="relative bg-white mb-[60px] max-w-6xl mx-auto px-4 md:px-6 lg:px-8 space-y-10">
         {/* Hero-ish header (you already have a hero; keep this subtle) */}
-        <div className="text-center">
-          <h1 className="text-2xl md:text-3xl font-semibold text-gray-900">{cs.company}</h1>
+        <div className="text-left">
+          <h1 className="text-3xl md:text-4xl font-semibold text-gray-900">{cs.company}</h1>
           <p className="mt-1 text-sm text-gray-600">{cs.label}</p>
         </div>
 
@@ -28,7 +28,7 @@ export default function CaseStudyDetail({cs}) {
           <img
             src={cs.image}
             alt={`${cs.company} project`}
-            className="rounded-xl shadow-md max-h-96 object-cover"
+            className="w-full rounded-xl shadow-md max-h-96 object-cover"
             loading="lazy"
           />
         </div>

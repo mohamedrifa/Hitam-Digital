@@ -3,6 +3,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FiPhoneCall, FiMail } from "react-icons/fi";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import ServicePopup from "./Servicepopup";
+import Logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,7 +48,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto items-center justify-between hidden md:flex py-4 px-6">
           <Link to="/" className="shrink-0">
             <img
-              src="https://ik.imagekit.io/iufkpclvp/HItam%20Newgen/Digital%20Copy1%20(1).png?updatedAt=1753858388322"
+              src={Logo}
               alt="Hitam Digital"
               className="h-10 w-auto shadow-2xl hidden md:block"
             />
@@ -79,16 +80,16 @@ const Navbar = () => {
               Testimonial
             </NavLink>
 
+            <NavLink to="/projects" className={navLinkClass}>
+              Projects
+            </NavLink>
+
             <NavLink to="/about_us" className={navLinkClass}>
               About us
             </NavLink>
 
-            <NavLink to="/blogs" className={navLinkClass}>
-              Blog
-            </NavLink>
-
-            <NavLink to="/contactus" className={navLinkClass}>
-              Contact
+            <NavLink to="/career" className={navLinkClass}>
+              Careers
             </NavLink>
           </nav>
 
@@ -98,7 +99,7 @@ const Navbar = () => {
               <span>000-000-0000</span>
             </a>
             <a
-              href="mailto:info@example.com"
+              href="/contactus"
               className="p-2 rounded-full hover:bg-gray-100 transition-colors"
               aria-label="Email us"
             >
@@ -155,16 +156,18 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu & Services */}
+        {/* Mobile menu & Services */}
         {menuOpen && (
-          <div className="md:hidden mt-1 px-4 pb-4 pt-3 space-y-3 text-base font-medium text-gray-800 bg-white shadow rounded-b-xl">
+          <div className="md:hidden mt-1 px-4 pb-4 pt-3 flex flex-col gap-3 text-base font-medium text-gray-800 bg-white shadow rounded-b-xl">
             <NavLink to="/" end className={navLinkClass} onClick={closeAll}>
               Home
             </NavLink>
 
             <button
               onClick={toggleServices}
-              className="flex items-center justify-between w-full hover:text-green-600"
+              className="flex items-center justify-between w-full py-2 hover:text-green-600"
               aria-expanded={servicesOpen}
+              aria-controls="mobile-services"
             >
               Services
               <IoIosArrowDown
@@ -173,21 +176,22 @@ const Navbar = () => {
             </button>
 
             {servicesOpen && (
-              <div className="mt-3 -mx-4 border-t">
-                {/* Provide a quick link to /service in mobile too */}
+              <div id="mobile-services" className="mt-1 -mx-4 border-t">
                 <div className="px-4 py-3">
                   <NavLink
                     to="/service"
-                    className="text-green-700 font-medium"
+                    className="text-green-700 font-medium block"
                     onClick={closeAll}
                   >
                     View all services →
                   </NavLink>
                 </div>
-                <ServicePopup />
+                <div className="px-2">
+                  <ServicePopup />
+                </div>
               </div>
             )}
-
+          
             <NavLink to="/testimonial" className={navLinkClass} onClick={closeAll}>
               Testimonial
             </NavLink>
@@ -205,6 +209,7 @@ const Navbar = () => {
             </NavLink>
           </div>
         )}
+
       </div>
     </header>
   );

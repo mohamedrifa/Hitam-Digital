@@ -38,7 +38,7 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Right: heading + two lines + CTA */}
-        <div className="text-left ml-[30px] h-px]">
+        <div className="text-left">
           <h3 className="text-[#131D12] font-['Outfit'] text-[28px] sm:text-[34px] md:text-[40px] font-bold tracking-[0.2px] leading-normal">
             Join us and be part of something great!
         </h3>

@@ -12,7 +12,6 @@ const Testimonial = () => {
     <GrowthResults />
     <OurClients />
     <TestimonialsGrid />
-    <CTASection />
     </>
   )
 }
