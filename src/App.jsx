@@ -8,7 +8,7 @@ const ServicePage       = lazy(() => import("./pages/servicepage/ServicePage"));
 const RouteLayout       = lazy(() => import("./layout/RouteLayout"));
 const ContactPage       = lazy(() => import("./pages/contactuspage/ContactUsPage"));
 const ErrorPage         = lazy(() => import("./pages/errorpage/ErrorPage"));
-const CareerPage        = lazy(() => import("./pages/careerPage/CareerPage"));
+const CareerPage        = lazy(() => import("./pages/careerpage/CareerPage"));
 const BlogPage          = lazy(() => import("./pages/blogpage/BlogPage"));
 const HomePage          = lazy(() => import("./pages/homepage/HomePage"));
 const CaseStudyPage     = lazy(() => import("./pages/casestudy/CaseStudyPage"));
@@ -24,9 +24,9 @@ const App = () => {
           <div className="min-h-screen flex items-center justify-center bg-white">
             <Loader
               size={90}
-              color="transparent"   // primary (transparent)
-              accent="#018002"      // sharp accent band
-              speed={2}             // rotation speed of the stroke color
+              color="transparent"   
+              accent="#018002"      
+              speed={2}            
               label="Loading..."
             />
           </div>
