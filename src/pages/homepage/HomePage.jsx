@@ -1,14 +1,14 @@
 import React, { lazy, Suspense } from "react";
-import HeroSection from "../../components/home/HeroSection";
-import HowWeWork from "../../components/home/HowWeWork";
-import PortfolioSection from "../../components/home/PortfolioSection";
-import CompactBlogSection from "../../components/home/BlogSection";
+import HeroSection from "../../components/ahjhj/HeroSection";
+import HowWeWork from "../../components/ahjhj/HowWeWork";
+import PortfolioSection from "../../components/ahjhj/PortfolioSection";
+import CompactBlogSection from "../../components/ahjhj/BlogSection";
 
 
 
 // ✅ lazy() must also be a function here
-const OurClients = lazy(() => import("../../components/home/OurClients"));
-const FAQSection = lazy(()=>import("../../components/home/FAQsection"));
+const OurClients = lazy(() => import("../../components/ahjhj/OurClients"));
+const FAQSection = lazy(()=>import("../../components/ahjhj/FAQsection"));
 
 const HomePage = () => {
   return (
