@@ -4,7 +4,7 @@ import CaseStudyDetail from '../../components/case_study/CaseStudyDetail'
 import { CASE_STUDIES } from '../../utils/home';
 import HeroSectionCaseStudy from '../../components/case_study/HeroSectionCaseStudy';
 import { useParams } from 'react-router-dom';
-import OurClients from '../../components/ahjhj/OurClients';
+import OurClients from '../../components/home/OurClients';
 
 const CaseStudyOverview = () => {
 
