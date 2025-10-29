@@ -20,5 +20,4 @@ const ServicePage = () => {
     </>
  )
 }
-
 export default ServicePage;
