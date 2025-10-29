@@ -7,8 +7,6 @@ import FAQSection from "../../components/home/FAQsection";
 import BlogSection from "../../components/home/BlogSection";
 import ServiceSection from "../../components/servicesection/ServiceCardde";
 
-
-
 const ServicePage = () => {
    
  return(
