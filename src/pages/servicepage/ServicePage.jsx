@@ -8,7 +8,6 @@ import BlogSection from "../../components/home/BlogSection";
 import ServiceSection from "../../components/servicesection/ServiceCardde";
 
 const ServicePage = () => {
-   
  return(
     <>
     <HeroSectionOne/>
